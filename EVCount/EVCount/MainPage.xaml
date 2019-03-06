@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:EVCount"
+             x:Class="EVCount.MainPage">
+
+    <StackLayout BackgroundColor="#252525">
+        <!-- Place new controls here -->
+        
+        <Grid VerticalOptions="CenterAndExpand" Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="BackButtonsBring.png" Grid.Column="0" x:Name="Bring">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Tapped="Reads"
+                            NumberOfTapsRequired="2" />
+                    </Image.GestureRecognizers>
+                </Image>
+                    
+                    <Image Source="BackButtonsSave.png" Grid.Column="1" x:Name="Save">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="Saves"
+                            NumberOfTapsRequired="2" />
+                </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+
+            <Image  Source="CountBGnd.png" Grid.Column="0" Grid.Row="1" HorizontalOptions="CenterAndExpand"/>
+            <Label x:Name="DisplayCount" Text="0" 
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   VerticalOptions="CenterAndExpand" 
+                   Grid.Column="0" Grid.Row="1"/>
+            
+            <Grid Grid.Column="0" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image  Source="RiseCount.png" Grid.Column="0" Grid.Row="0" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="Rise1"
+                            NumberOfTapsRequired="2" />
+                </Image.GestureRecognizers>
+                </Image>
+                <Image  Source="PerBG.png" Grid.Column="0" Grid.Row="1"/>
+                <Label x:Name="Add1" Text="+1" 
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   VerticalOptions="CenterAndExpand" 
+                   Grid.Column="0" Grid.Row="1"/>
+
+                <Image  Source="RiseCount.png" Grid.Column="1" Grid.Row="0" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="Rise4"
+                            NumberOfTapsRequired="2" />
+                </Image.GestureRecognizers>
+                </Image>
+                <Image  Source="PerBG.png" Grid.Column="1" Grid.Row="1"/>
+                <Label x:Name="Add4" Text="+4" 
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   VerticalOptions="CenterAndExpand" 
+                   Grid.Column="1" Grid.Row="1"/>
+
+                <Image  Source="RiseCount.png" Grid.Column="2" Grid.Row="0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="Rise8"
+                            NumberOfTapsRequired="2" />
+                </Image.GestureRecognizers>
+                </Image>
+                <Image  Source="PerBG.png" Grid.Column="2" Grid.Row="1"/>
+                <Label x:Name="Add8" Text="+8" 
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   VerticalOptions="CenterAndExpand" 
+                   Grid.Column="2" Grid.Row="1"/>
+
+                <Image  Source="RiseCount.png" Grid.Column="3" Grid.Row="0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Tapped="Rise12"
+                            NumberOfTapsRequired="2" />
+                </Image.GestureRecognizers>
+                </Image>
+                <Image  Source="PerBG.png" Grid.Column="3" Grid.Row="1"/>
+                <Label x:Name="Add12" Text="+12" 
+                   HorizontalOptions="Center"
+                   TextColor="White"
+                   VerticalOptions="CenterAndExpand" 
+                   Grid.Column="3" Grid.Row="1"/>
+
+            </Grid>
+            <Image  Source="BackButtons.png" Grid.Column="0" Grid.Row="4" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+            <Label x:Name="ReStart" Text="Restart" 
+                   HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
+                   TextColor="White"
+                   Grid.Column="0" Grid.Row="4">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Restart" NumberOfTapsRequired="2"/>
+
+
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+
+        
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,12 @@
+C:\Users\tra128\source\repos\EVCount\EVCount\EVCount\bin\Debug\netstandard2.0\EVCount.deps.json
+C:\Users\tra128\source\repos\EVCount\EVCount\EVCount\bin\Debug\netstandard2.0\EVCount.dll
+C:\Users\tra128\source\repos\EVCount\EVCount\EVCount\bin\Debug\netstandard2.0\EVCount.pdb
+C:\Users\tra128\source\repos\EVCount\EVCount\EVCount\obj\Debug\netstandard2.0\EVCount.csprojAssemblyReference.cache
+C:\Users\tra128\source\repos\EVCount\EVCount\EVCount\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\tra128\source\repos\EVCount\EVCount\EVCount\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\tra128\source\repos\EVCount\EVCount\EVCount\obj\Debug\netstandard2.0\EVCount.csproj.CoreCompileInputs.cache
+C:\Users\tra128\source\repos\EVCount\EVCount\EVCount\obj\Debug\netstandard2.0\EVCount.AssemblyInfoInputs.cache
+C:\Users\tra128\source\repos\EVCount\EVCount\EVCount\obj\Debug\netstandard2.0\EVCount.AssemblyInfo.cs
+C:\Users\tra128\source\repos\EVCount\EVCount\EVCount\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\tra128\source\repos\EVCount\EVCount\EVCount\obj\Debug\netstandard2.0\EVCount.dll
+C:\Users\tra128\source\repos\EVCount\EVCount\EVCount\obj\Debug\netstandard2.0\EVCount.pdb
