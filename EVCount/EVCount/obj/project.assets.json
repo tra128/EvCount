@@ -352,11 +352,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tra128\\source\\repos\\EVCount\\EVCount\\EVCount\\EVCount.csproj",
+      "projectUniqueName": "C:\\Users\\tra128\\Documents\\GitHub\\EvCount\\EVCount\\EVCount\\EVCount.csproj",
       "projectName": "EVCount",
-      "projectPath": "C:\\Users\\tra128\\source\\repos\\EVCount\\EVCount\\EVCount\\EVCount.csproj",
+      "projectPath": "C:\\Users\\tra128\\Documents\\GitHub\\EvCount\\EVCount\\EVCount\\EVCount.csproj",
       "packagesPath": "C:\\Users\\tra128\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tra128\\source\\repos\\EVCount\\EVCount\\EVCount\\obj\\",
+      "outputPath": "C:\\Users\\tra128\\Documents\\GitHub\\EvCount\\EVCount\\EVCount\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -786,11 +786,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tra128\\source\\repos\\EVCount\\EVCount\\EVCount.Android\\EVCount.Android.csproj",
+      "projectUniqueName": "C:\\Users\\tra128\\Documents\\GitHub\\EvCount\\EVCount\\EVCount.Android\\EVCount.Android.csproj",
       "projectName": "EVCount.Android",
-      "projectPath": "C:\\Users\\tra128\\source\\repos\\EVCount\\EVCount\\EVCount.Android\\EVCount.Android.csproj",
+      "projectPath": "C:\\Users\\tra128\\Documents\\GitHub\\EvCount\\EVCount\\EVCount.Android\\EVCount.Android.csproj",
       "packagesPath": "C:\\Users\\tra128\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tra128\\source\\repos\\EVCount\\EVCount\\EVCount.Android\\obj\\",
+      "outputPath": "C:\\Users\\tra128\\Documents\\GitHub\\EvCount\\EVCount\\EVCount.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -808,8 +808,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "C:\\Users\\tra128\\source\\repos\\EVCount\\EVCount\\EVCount\\EVCount.csproj": {
-              "projectPath": "C:\\Users\\tra128\\source\\repos\\EVCount\\EVCount\\EVCount\\EVCount.csproj"
+            "C:\\Users\\tra128\\Documents\\GitHub\\EvCount\\EVCount\\EVCount\\EVCount.csproj": {
+              "projectPath": "C:\\Users\\tra128\\Documents\\GitHub\\EvCount\\EVCount\\EVCount\\EVCount.csproj"
             }
           }
         }
