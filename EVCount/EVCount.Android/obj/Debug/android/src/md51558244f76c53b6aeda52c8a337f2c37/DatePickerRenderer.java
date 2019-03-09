@@ -2,7 +2,7 @@ package md51558244f76c53b6aeda52c8a337f2c37;
 
 
 public class DatePickerRenderer
-	extends md51558244f76c53b6aeda52c8a337f2c37.ViewRenderer_2
+	extends md51558244f76c53b6aeda52c8a337f2c37.DatePickerRendererBase_1
 	implements
 		mono.android.IGCUserPeer
 {
@@ -12,14 +12,6 @@ public class DatePickerRenderer
 		__md_methods = 
 			"";
 		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.DatePickerRenderer, Xamarin.Forms.Platform.Android", DatePickerRenderer.class, __md_methods);
-	}
-
-
-	public DatePickerRenderer (android.content.Context p0)
-	{
-		super (p0);
-		if (getClass () == DatePickerRenderer.class)
-			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.DatePickerRenderer, Xamarin.Forms.Platform.Android", "Android.Content.Context, Mono.Android", this, new java.lang.Object[] { p0 });
 	}
 
 
@@ -36,6 +28,14 @@ public class DatePickerRenderer
 		super (p0, p1);
 		if (getClass () == DatePickerRenderer.class)
 			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.DatePickerRenderer, Xamarin.Forms.Platform.Android", "Android.Content.Context, Mono.Android:Android.Util.IAttributeSet, Mono.Android", this, new java.lang.Object[] { p0, p1 });
+	}
+
+
+	public DatePickerRenderer (android.content.Context p0)
+	{
+		super (p0);
+		if (getClass () == DatePickerRenderer.class)
+			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.DatePickerRenderer, Xamarin.Forms.Platform.Android", "Android.Content.Context, Mono.Android", this, new java.lang.Object[] { p0 });
 	}
 
 	private java.util.ArrayList refList;

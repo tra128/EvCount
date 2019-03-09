@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Paths>
   <Jars>
+    <Jar>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\1\jl\formsviewgroup.jar</Jar>
     <Jar>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\10\jl\bin\classes.jar</Jar>
     <Jar>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\11\jl\bin\classes.jar</Jar>
     <Jar>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\12\jl\bin\classes.jar</Jar>
@@ -11,7 +12,6 @@
     <Jar>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\17\jl\bin\classes.jar</Jar>
     <Jar>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\18\jl\bin\classes.jar</Jar>
     <Jar>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\19\jl\bin\classes.jar</Jar>
-    <Jar>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\2\jl\formsviewgroup.jar</Jar>
     <Jar>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\20\jl\bin\classes.jar</Jar>
     <Jar>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\21\jl\bin\classes.jar</Jar>
     <Jar>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\3\jl\arch-core-common.jar</Jar>
@@ -32,9 +32,11 @@
     <ResolvedResourceDirectory>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\17\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\18\jl\res</ResolvedResourceDirectory>
     <ResolvedResourceDirectory>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\20\jl\res</ResolvedResourceDirectory>
+    <ResolvedResourceDirectory>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\23\jl\res</ResolvedResourceDirectory>
   </ResolvedResourceDirectories>
   <ResolvedAssetDirectories>
     <ResolvedAssetDirectory>obj\Debug\lp\15\jl\assets</ResolvedAssetDirectory>
+    <ResolvedAssetDirectory>obj\Debug\lp\23\jl\assets</ResolvedAssetDirectory>
   </ResolvedAssetDirectories>
   <ResolvedEnvironmentFiles />
   <ResolvedResourceDirectoryStamps>
@@ -47,5 +49,6 @@
     <ResolvedResourceDirectoryStamp>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\17.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\18.stamp</ResolvedResourceDirectoryStamp>
     <ResolvedResourceDirectoryStamp>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\20.stamp</ResolvedResourceDirectoryStamp>
+    <ResolvedResourceDirectoryStamp>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\lp\23.stamp</ResolvedResourceDirectoryStamp>
   </ResolvedResourceDirectoryStamps>
 </Paths>

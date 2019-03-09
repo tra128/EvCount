@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EVCount.StartMenu">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="BackGrounds" Aspect="AspectFill" Grid.Column="0" Grid.Row="0"/>
+            <Image Source="BackGroundsRL" Aspect="AspectFill" Grid.Column="0" Grid.Row="0" HorizontalOptions="EndAndExpand"/>
+            <Image Source="BackGroundsRL" Aspect="AspectFill" Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand"/>
+            <Image Source="BackGroundsUD" Aspect="AspectFill" Grid.Column="0" Grid.Row="0" VerticalOptions="StartAndExpand"/>
+            <Image Source="BackGroundsUD" Aspect="AspectFill" Grid.Column="0" Grid.Row="0" VerticalOptions="EndAndExpand"/>
+            <StackLayout Grid.Column="0" Grid.Row="0" Spacing="0">
+
+                <Image Source="StartMenuLogo1" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,10,0,0"/>
+                <Image Source="EvCountIcon" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="StartAndExpand" WidthRequest="150"/>
+                <Button Text="Start" Style="{StaticResource buttonStyle}" VerticalOptions="CenterAndExpand"/>
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

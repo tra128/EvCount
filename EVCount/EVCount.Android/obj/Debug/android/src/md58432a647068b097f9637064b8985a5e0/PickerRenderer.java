@@ -2,7 +2,7 @@ package md58432a647068b097f9637064b8985a5e0;
 
 
 public class PickerRenderer
-	extends md58432a647068b097f9637064b8985a5e0.ViewRenderer_2
+	extends md58432a647068b097f9637064b8985a5e0.PickerRendererBase_1
 	implements
 		mono.android.IGCUserPeer
 {
@@ -12,14 +12,6 @@ public class PickerRenderer
 		__md_methods = 
 			"";
 		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.AppCompat.PickerRenderer, Xamarin.Forms.Platform.Android", PickerRenderer.class, __md_methods);
-	}
-
-
-	public PickerRenderer (android.content.Context p0)
-	{
-		super (p0);
-		if (getClass () == PickerRenderer.class)
-			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.AppCompat.PickerRenderer, Xamarin.Forms.Platform.Android", "Android.Content.Context, Mono.Android", this, new java.lang.Object[] { p0 });
 	}
 
 
@@ -36,6 +28,14 @@ public class PickerRenderer
 		super (p0, p1);
 		if (getClass () == PickerRenderer.class)
 			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.AppCompat.PickerRenderer, Xamarin.Forms.Platform.Android", "Android.Content.Context, Mono.Android:Android.Util.IAttributeSet, Mono.Android", this, new java.lang.Object[] { p0, p1 });
+	}
+
+
+	public PickerRenderer (android.content.Context p0)
+	{
+		super (p0);
+		if (getClass () == PickerRenderer.class)
+			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.AppCompat.PickerRenderer, Xamarin.Forms.Platform.Android", "Android.Content.Context, Mono.Android", this, new java.lang.Object[] { p0 });
 	}
 
 	private java.util.ArrayList refList;

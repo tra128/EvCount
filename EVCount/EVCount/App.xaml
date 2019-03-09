@@ -2,7 +2,20 @@
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EVCount.App">
-	<Application.Resources>
-    
-	</Application.Resources>
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Accent"/>
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="FontFamily">
+                    <OnPlatform x:TypeArguments="x:String" iOS="RobotoCondensed-Regular" Android="RobotoCondensed-Regular.ttf#Roboto Condensed">
+                    </OnPlatform>
+                </Setter>
+                <Setter Property="BorderColor" Value="#4B4661" />
+                <Setter Property="BorderRadius" Value="40" />
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="TextColor" Value="#FFFFFF" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
