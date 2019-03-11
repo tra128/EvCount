@@ -4,6 +4,8 @@ C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\andro
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\android\assets\Java.Interop.dll
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\android\assets\Mono.Android.dll
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\android\assets\mscorlib.dll
+C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\android\assets\Plugin.SimpleAudioPlayer.Abstractions.dll
+C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\android\assets\Plugin.SimpleAudioPlayer.dll
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\android\assets\System.Core.dll
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\android\assets\System.dll
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\android\assets\System.Xml.dll
@@ -63,4 +65,5 @@ C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\andro
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\android\assets\System.Runtime.InteropServices.dll
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\android\assets\System.Runtime.Extensions.dll
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\android\assets\System.Reflection.Extensions.dll
+C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\android\assets\System.IO.dll
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\android\assets\Mono.Security.dll

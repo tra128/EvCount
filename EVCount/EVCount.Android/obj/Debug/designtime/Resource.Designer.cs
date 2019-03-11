@@ -3415,6 +3415,12 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F050002
 			public const int launcher_background = 2131034114;
 			
+			// aapt resource value: 0x7F050007
+			public const int ListViewHighlighted = 2131034119;
+			
+			// aapt resource value: 0x7F050006
+			public const int ListViewSelected = 2131034118;
+			
 			// aapt resource value: 0x7F06003B
 			public const int material_blue_grey_800 = 2131099707;
 			
@@ -4315,22 +4321,25 @@ namespace EVCount.Droid
 			public const int BackGrounds = 2130771974;
 			
 			// aapt resource value: 0x7F010007
-			public const int BackGroundsL = 2130771975;
+			public const int BackGroundsRL = 2130771975;
 			
 			// aapt resource value: 0x7F010008
-			public const int BackGroundsR = 2130771976;
+			public const int BackGroundsUD = 2130771976;
 			
 			// aapt resource value: 0x7F010009
-			public const int BackGroundsRL = 2130771977;
+			public const int buttonsAccept = 2130771977;
 			
 			// aapt resource value: 0x7F010010
-			public const int BackGroundsUD = 2130771984;
+			public const int buttonsCancel = 2130771984;
 			
 			// aapt resource value: 0x7F010011
 			public const int CountBGnd = 2130771985;
 			
 			// aapt resource value: 0x7F010012
 			public const int Cross = 2130771986;
+			
+			// aapt resource value: 0x7F010013
+			public const int DeleteIconYellow = 2130771987;
 			
 			// aapt resource value: 0x7F090056
 			public const int design_bottom_navigation_item_background = 2131296342;
@@ -4350,8 +4359,8 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F09005B
 			public const int design_snackbar_background = 2131296347;
 			
-			// aapt resource value: 0x7F010013
-			public const int EvCountIcon = 2130771987;
+			// aapt resource value: 0x7F010014
+			public const int EvCountIcon = 2130771988;
 			
 			// aapt resource value: 0x7F090054
 			public const int ic_audiotrack_dark = 2131296340;
@@ -4884,6 +4893,9 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F090104
 			public const int ic_vol_type_tv_light = 2131296516;
 			
+			// aapt resource value: 0x7F010015
+			public const int MinusImg = 2130771989;
+			
 			// aapt resource value: 0x7F090105
 			public const int mr_button_connected_dark = 2131296517;
 			
@@ -4944,6 +4956,9 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F090118
 			public const int mr_vol_type_audiotrack_light = 2131296536;
 			
+			// aapt resource value: 0x7F010016
+			public const int NavigationBackground = 2130771990;
+			
 			// aapt resource value: 0x7F09005C
 			public const int navigation_empty_icon = 2131296348;
 			
@@ -4983,14 +4998,26 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F09000C
 			public const int notify_panel_notification_icon_bg = 2131296268;
 			
-			// aapt resource value: 0x7F010014
-			public const int PerBG = 2130771988;
+			// aapt resource value: 0x7F010017
+			public const int PerBG = 2130771991;
 			
-			// aapt resource value: 0x7F010015
-			public const int RiseCount = 2130771989;
+			// aapt resource value: 0x7F010018
+			public const int PluseImg = 2130771992;
 			
-			// aapt resource value: 0x7F010016
-			public const int StartMenuLogo1 = 2130771990;
+			// aapt resource value: 0x7F010019
+			public const int RiseCount = 2130771993;
+			
+			// aapt resource value: 0x7F010020
+			public const int SaveIcon = 2130772000;
+			
+			// aapt resource value: 0x7F010021
+			public const int SaveIconSaved = 2130772001;
+			
+			// aapt resource value: 0x7F010022
+			public const int StartMenuLogo1 = 2130772002;
+			
+			// aapt resource value: 0x7F010023
+			public const int SunIcon = 2130772003;
 			
 			// aapt resource value: 0x7F090069
 			public const int tooltip_frame_dark = 2131296361;
@@ -4998,8 +5025,8 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F09006A
 			public const int tooltip_frame_light = 2131296362;
 			
-			// aapt resource value: 0x7F010017
-			public const int UArrow = 2130771991;
+			// aapt resource value: 0x7F010024
+			public const int UArrow = 2130772004;
 			
 			static Drawable()
 			{
@@ -6612,6 +6639,9 @@ namespace EVCount.Droid
 			
 			// aapt resource value: 0x7F160004
 			public const int CardView_Light = 2132148228;
+			
+			// aapt resource value: 0x7F060005
+			public const int ListViewStyleNew1 = 2131099653;
 			
 			// aapt resource value: 0x7F060002
 			public const int MainTheme = 2131099650;

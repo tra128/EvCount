@@ -14,7 +14,21 @@
                 <Setter Property="BorderColor" Value="#4B4661" />
                 <Setter Property="BorderRadius" Value="40" />
                 <Setter Property="BorderWidth" Value="0" />
-                <Setter Property="TextColor" Value="#FFFFFF" />
+                <Setter Property="TextColor" Value="#454545" />
+            </Style>
+            <Style x:Key="SubtitulosEntry" TargetType="Entry">
+                <Setter Property="FontFamily">
+                    <OnPlatform x:TypeArguments="x:String" iOS="RobotoCondensed-Regular" Android="RobotoCondensed-Regular.ttf#Roboto Condensed">
+                    </OnPlatform>
+                </Setter>
+            </Style>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="FontFamily">
+                    <OnPlatform x:TypeArguments="x:String" iOS="RobotoCondensed-Regular" Android="RobotoCondensed-Regular.ttf#Roboto Condensed">
+                    </OnPlatform>
+                </Setter>
+                <Setter Property="TextColor" Value="#343434" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

@@ -109,6 +109,8 @@ class MonoPackageManager_Resources {
 		"EVCount.Android.dll",
 		"EVCount.dll",
 		"FormsViewGroup.dll",
+		"Plugin.SimpleAudioPlayer.Abstractions.dll",
+		"Plugin.SimpleAudioPlayer.dll",
 		"Xamarin.Android.Arch.Core.Common.dll",
 		"Xamarin.Android.Arch.Lifecycle.Common.dll",
 		"Xamarin.Android.Arch.Lifecycle.Runtime.dll",

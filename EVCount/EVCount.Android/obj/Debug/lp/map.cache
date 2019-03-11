@@ -1,5 +1,7 @@
 EVCount
 FormsViewGroup
+Plugin.SimpleAudioPlayer.Abstractions
+Plugin.SimpleAudioPlayer
 System.Runtime
 Xamarin.Android.Arch.Core.Common
 Xamarin.Android.Arch.Lifecycle.Common

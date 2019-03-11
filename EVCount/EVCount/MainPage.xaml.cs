@@ -6,14 +6,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using EVCount.Clases;
 
 namespace EVCount
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+        Trainer GlobalTrainer;
+        public MainPage(Trainer trainer)
         {
             InitializeComponent();
+            GlobalTrainer = trainer;
+            UserIcon.Source = GlobalTrainer.Image;
+            TrainerName.Text = GlobalTrainer.Name;
+            img_VsPokemon.Source = "https://img.pokemondb.net/artwork/" + trainer.Pokemon.ToLower()+".jpg";
+            img_TrainPokemon.Source = "https://img.pokemondb.net/sprites/heartgold-soulsilver/back-normal/" + trainer.Pokemon.ToLower() + ".png";
         }
 
 

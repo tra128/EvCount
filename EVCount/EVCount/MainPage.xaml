@@ -2,12 +2,124 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:EVCount"
-             x:Class="EVCount.MainPage">
-
-    <StackLayout BackgroundColor="#252525">
-        <!-- Place new controls here -->
+             x:Class="EVCount.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         
-        <Grid VerticalOptions="CenterAndExpand" Margin="20">
+
+        <Image Source="BackGrounds" Aspect="AspectFill" Grid.Column="0" Grid.Row="0"/>
+        <Image Source="BackGroundsRL" Aspect="AspectFill" Grid.Column="0" Grid.Row="0" HorizontalOptions="EndAndExpand"/>
+        <Image Source="BackGroundsRL" Aspect="AspectFill" Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand"/>
+        <Image Source="BackGroundsUD" Aspect="AspectFill" Grid.Column="0" Grid.Row="0" VerticalOptions="StartAndExpand"/>
+        <Image Source="BackGroundsUD" Aspect="AspectFill" Grid.Column="0" Grid.Row="0" VerticalOptions="EndAndExpand"/>
+        <StackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Image Source="NavigationBackground" Aspect="Fill"></Image>
+                <StackLayout Orientation="Horizontal">
+                    <Image x:Name="UserIcon" HorizontalOptions="Start" Aspect="AspectFit" WidthRequest="45" Margin="20,0,0,0"/>
+                    <Label x:Name="TrainerName" HorizontalOptions="StartAndExpand" 
+                           Style="{StaticResource LabelStyle}" VerticalOptions="CenterAndExpand"
+                           FontSize="Large"/>
+                    <Image x:Name="img_SaveIcon" Source="SaveIcon" Aspect="AspectFit" WidthRequest="45" Margin="0,0,20,0"></Image>
+                </StackLayout>
+            </Grid>
+
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="45"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Held Item" Style="{StaticResource LabelStyle}" VerticalOptions="StartAndExpand"/>
+                <Frame BorderColor="Accent" BackgroundColor="#454545" Padding="0" CornerRadius="60" VerticalOptions="EndAndExpand">
+                    <Label Text="Select an Item" Style="{StaticResource LabelStyle}" TextColor="White"/>
+                </Frame>
+                <Switch IsToggled="False" OnColor="Accent" 
+                        Grid.Column="0" Grid.Row="1" 
+                        VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+                <Label Text="Gen 7" Style="{StaticResource LabelStyle}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" 
+                       Grid.Column="0" Grid.Row="1"/>
+                <Image x:Name="img_VsPokemon" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"
+                       Aspect="AspectFit" WidthRequest="195"/>
+                <Switch IsToggled="False" OnColor="Accent" 
+                        Grid.Column="2" Grid.Row="0" 
+                        VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+                <Label Text="Pokerus" Style="{StaticResource LabelStyle}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" 
+                       Grid.Column="2" Grid.Row="0"/>
+                <Switch IsToggled="False" OnColor="Accent" 
+                        Grid.Column="2" Grid.Row="1" 
+                        VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+                <Label Text="S.O.S." Style="{StaticResource LabelStyle}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" 
+                       Grid.Column="2" Grid.Row="1"/>
+            </Grid>
+
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame BorderColor="Accent" BackgroundColor="#454545" Padding="0" 
+                       CornerRadius="60" VerticalOptions="EndAndExpand"
+                       Grid.Column="0" Grid.Row="0">
+                    <Label Text="Use Item" Style="{StaticResource LabelStyle}" TextColor="White"/>
+                </Frame>
+                <Image x:Name="img_TrainPokemon" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="0"
+                       Aspect="AspectFill" HeightRequest="195"/>
+                <Frame BorderColor="Accent" BackgroundColor="#454545" Padding="0" 
+                       CornerRadius="60" VerticalOptions="EndAndExpand"
+                       Grid.Column="2" Grid.Row="0">
+                    <Label Text="Super Training" Style="{StaticResource LabelStyle}" TextColor="White"/>
+                </Frame>
+            </Grid>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="CountBGnd" 
+                       HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                       Aspect="AspectFill" Grid.Column="1"/>
+                <Label Text="0" Style="{StaticResource LabelStyle}"
+                       Grid.Column="1"
+                       HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
+                <Image Source="MinusImg" 
+                       HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" 
+                       Aspect="AspectFill" Grid.Column="1"/>
+                <Image Source="PluseImg" 
+                       HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" 
+                       Aspect="AspectFill" Grid.Column="1"/>
+            </Grid>
+            <!-- Place new controls here -->
+        
+        <Grid VerticalOptions="CenterAndExpand" Margin="20" IsVisible="False">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
@@ -136,5 +248,6 @@
 
         
     </StackLayout>
+    </Grid>
 
 </ContentPage>

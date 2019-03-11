@@ -30,13 +30,26 @@ namespace EVCount.Clases
     }
 
     public class Pokemon {
-        String name { get; set; }
-        int HP { get; set; }
-        int Atk { get; set; }
-        int Def { get; set; }
-        int SpAtk { get; set; }
-        int SpDef { get; set; }
-        int Spd { get; set; }
-        int Total { get; set; }
+        public String name { get; set; }
+        public int HP { get; set; }
+        public int Atk { get; set; }
+        public int Def { get; set; }
+        public int SpAtk { get; set; }
+        public int SpDef { get; set; }
+        public int Spd { get; set; }
+        public int Total { get; set; }
+    }
+
+    public class Trainer
+    {
+        public string Image { get; set; }
+        public String Name { get; set; }
+        public string Pokemon { get; set; }
+        public int HP { get; set; }
+        public int Atk { get; set; }
+        public int Def { get; set; }
+        public int SpAtk { get; set; }
+        public int SpDef { get; set; }
+        public int Spd { get; set; }
     }
 }

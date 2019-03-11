@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="EVCount.StartMenu">
+             x:Class="EVCount.StartMenu"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -16,13 +17,446 @@
             <Image Source="BackGroundsRL" Aspect="AspectFill" Grid.Column="0" Grid.Row="0" HorizontalOptions="StartAndExpand"/>
             <Image Source="BackGroundsUD" Aspect="AspectFill" Grid.Column="0" Grid.Row="0" VerticalOptions="StartAndExpand"/>
             <Image Source="BackGroundsUD" Aspect="AspectFill" Grid.Column="0" Grid.Row="0" VerticalOptions="EndAndExpand"/>
-            <StackLayout Grid.Column="0" Grid.Row="0" Spacing="0">
-
+            <StackLayout x:Name="stl_StartMenu" IsVisible="True" Grid.Column="0" Grid.Row="0" Spacing="0">
                 <Image Source="StartMenuLogo1" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Start" Margin="0,10,0,0"/>
                 <Image Source="EvCountIcon" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="StartAndExpand" WidthRequest="150"/>
-                <Button Text="Start" Style="{StaticResource buttonStyle}" VerticalOptions="CenterAndExpand"/>
+                <Grid HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Image Source="CountBGnd" 
+                           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                           Grid.Column="0" Grid.Row="0"
+                           Aspect="AspectFit" WidthRequest="250">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="StartBtnTapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label Text="Start" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                           Grid.Column="0" Grid.Row="0"
+                           Style="{StaticResource LabelStyle}">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="StartBtnTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+                
+                <Button Text="Start" Style="{StaticResource buttonStyle}" VerticalOptions="CenterAndExpand" IsVisible="False"/>
 
             </StackLayout>
+            <StackLayout x:Name="stl_SaveDataMenu" Grid.Column="0" Grid.Row="0" Spacing="0" Opacity="0" IsVisible="False" Margin="20,60,20,60">
+                <Frame x:Name="frm_SaveFile1" BorderColor="Yellow" CornerRadius="5" HasShadow="True" BackgroundColor="White" >
+                    <Grid>
+                        <Grid x:Name="grd_SaveFile1" IsVisible="False" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="65"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="25"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="120"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="SunIcon" 
+                                   Grid.Column="0" Grid.Row="0" WidthRequest="65" Aspect="AspectFit"
+                                   VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+
+                            <Label Text="#1" Style="{StaticResource LabelStyle}" 
+                                                   Grid.Column="0" Grid.Row="0"
+                                                   HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" FontSize="Large"/>
+                            <ListView x:Name="lv_SaveFile1" HasUnevenRows="True" HeightRequest="120" 
+                                      Grid.Column="1" Grid.Row="0"
+                                      ItemTapped="lv_SaveFile_ItemTapped"
+                                      BackgroundColor="White" RefreshControlColor="White">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Grid.Column="1" Grid.Row="0" BackgroundColor="White">
+                                                <Label Style="{StaticResource LabelStyle}" 
+                                       HorizontalOptions="CenterAndExpand" FontSize="Large">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="Trainer: "/>
+                                                            <Span Text="{Binding Name}"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Label Style="{StaticResource LabelStyle}"
+                                                       HorizontalOptions="CenterAndExpand" FontSize="Large">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="Pokemon: "/>
+                                                            <Span Text="{Binding Pokemon}"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="0">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="HP: "/>
+                                                                <Span Text="{Binding HP}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="1">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Atk: "/>
+                                                                <Span Text="{Binding Atk}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="2">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Def: "/>
+                                                                <Span Text="{Binding Def}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="0">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Sp.Atk: "/>
+                                                                <Span Text="{Binding SpAtk}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="1">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Sp.Def: "/>
+                                                                <Span Text="{Binding SpDef}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="2">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Spd: "/>
+                                                                <Span Text="{Binding Spd}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                </Grid>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Image Source="DeleteIconYellow" 
+                                   Grid.Column="2" Grid.Row="0"
+                                   VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="DeleteTapped"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+                        <Label x:Name="lb_NewFile1" Text="NEW FILE 1" Style="{StaticResource LabelStyle}" FontSize="35" IsVisible="True">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="NewFileTapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Frame>
+                <Frame x:Name="frm_SaveFile2" BorderColor="Yellow" CornerRadius="5" HasShadow="True" BackgroundColor="White" Margin="0,30,0,30">
+                    <Grid>
+                        <Grid x:Name="grd_SaveFile2" IsVisible="False" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="65"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="25"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="120"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="SunIcon" 
+                                   Grid.Column="0" Grid.Row="0" WidthRequest="65" Aspect="AspectFit"
+                                   VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+
+                            <Label Text="#2" Style="{StaticResource LabelStyle}" 
+                                                   Grid.Column="0" Grid.Row="0"
+                                                   HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" FontSize="Large"/>
+                            <ListView x:Name="lv_SaveFile2" HasUnevenRows="True" HeightRequest="120" 
+                                      Grid.Column="1" Grid.Row="0"
+                                      ItemTapped="lv_SaveFile_ItemTapped"
+                                      BackgroundColor="White" RefreshControlColor="White">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Grid.Column="1" Grid.Row="0" BackgroundColor="White">
+                                                <Label Style="{StaticResource LabelStyle}" 
+                                       HorizontalOptions="CenterAndExpand" FontSize="Large">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="Trainer: "/>
+                                                            <Span Text="{Binding Name}"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Label Style="{StaticResource LabelStyle}"
+                                                       HorizontalOptions="CenterAndExpand" FontSize="Large">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="Pokemon: "/>
+                                                            <Span Text="{Binding Pokemon}"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="0">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="HP: "/>
+                                                                <Span Text="{Binding HP}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="1">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Atk: "/>
+                                                                <Span Text="{Binding Atk}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="2">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Def: "/>
+                                                                <Span Text="{Binding Def}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="0">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Sp.Atk: "/>
+                                                                <Span Text="{Binding SpAtk}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="1">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Sp.Def: "/>
+                                                                <Span Text="{Binding SpDef}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="2">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Spd: "/>
+                                                                <Span Text="{Binding Spd}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                </Grid>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Image Source="DeleteIconYellow" 
+                                   Grid.Column="2" Grid.Row="0"
+                                   VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="DeleteTapped"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+
+                        <Label x:Name="lb_NewFile2" Text="NEW FILE 2" Style="{StaticResource LabelStyle}" FontSize="35" IsVisible="True">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="NewFileTapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Frame>
+                <Frame x:Name="frm_SaveFile3" BorderColor="Yellow" CornerRadius="5" HasShadow="True" BackgroundColor="White">
+                    <Grid>
+                        <Grid x:Name="grd_SaveFile3" IsVisible="False" BackgroundColor="White">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="65"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="25"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="120"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="SunIcon" 
+                                   Grid.Column="0" Grid.Row="0" WidthRequest="65" Aspect="AspectFit"
+                                   VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"/>
+
+                            <Label Text="#3" Style="{StaticResource LabelStyle}" 
+                                                   Grid.Column="0" Grid.Row="0"
+                                                   HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" FontSize="Large"/>
+                            <ListView x:Name="lv_SaveFile3" HasUnevenRows="True" HeightRequest="120" 
+                                      Grid.Column="1" Grid.Row="0"
+                                      BackgroundColor="White" RefreshControlColor="White">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Grid.Column="1" Grid.Row="0" BackgroundColor="White">
+                                                <Label Style="{StaticResource LabelStyle}" 
+                                       HorizontalOptions="CenterAndExpand" FontSize="Large">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="Trainer: "/>
+                                                            <Span Text="{Binding Name}"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Label Style="{StaticResource LabelStyle}"
+                                                       HorizontalOptions="CenterAndExpand" FontSize="Large">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="Pokemon: "/>
+                                                            <Span Text="{Binding Pokemon}"/>
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <Grid>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="0">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="HP: "/>
+                                                                <Span Text="{Binding HP}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="1">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Atk: "/>
+                                                                <Span Text="{Binding Atk}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="0" Grid.Column="2">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Def: "/>
+                                                                <Span Text="{Binding Def}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="0">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Sp.Atk: "/>
+                                                                <Span Text="{Binding SpAtk}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="1">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Sp.Def: "/>
+                                                                <Span Text="{Binding SpDef}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                    <Label Style="{StaticResource LabelStyle}" Grid.Row="1" Grid.Column="2">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="Spd: "/>
+                                                                <Span Text="{Binding Spd}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                </Grid>
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <Image Source="DeleteIconYellow" 
+                                   Grid.Column="2" Grid.Row="0"
+                                   VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="DeleteTapped"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+                        <Label x:Name="lb_NewFile3" Text="NEW FILE 3" Style="{StaticResource LabelStyle}" FontSize="35" IsVisible="True">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="NewFileTapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+            <Frame x:Name="frm_NewUser" 
+                   BorderColor="Accent"
+                   CornerRadius="10"
+                   IsVisible="False"
+                   Scale=".10"
+                   Grid.Column="0" Grid.Row="0" Margin="60,90,60,90" Padding="10,10,10,0" BackgroundColor="#1D2C4B">
+                <StackLayout>
+                    <Image Source="SunIcon" WidthRequest="100" VerticalOptions="CenterAndExpand"/>
+                    <Frame CornerRadius="60" BorderColor="Accent" Padding="0" BackgroundColor="Transparent">
+                        <Entry x:Name="ntry_Name" Placeholder="Name" VerticalOptions="CenterAndExpand"
+                               Style="{StaticResource SubtitulosEntry}"
+                               Completed="ntry_Name_Completed"
+                               TextColor="Accent" PlaceholderColor="Accent" Margin="15,0,15,0"/>
+                    </Frame>
+                    <Frame CornerRadius="60" BorderColor="Accent" Padding="0" BackgroundColor="Transparent">
+                        <Entry x:Name="ntry_Pokemon" Placeholder="Pokemon" VerticalOptions="CenterAndExpand" 
+                               Style="{StaticResource SubtitulosEntry}"
+                               TextColor="Accent" PlaceholderColor="Accent" Margin="15,0,15,0"/>
+                    </Frame>
+                    <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" Margin="0,0,0,10">
+                        <Image Source="buttonsCancel" HorizontalOptions="CenterAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="CloseFileCreation"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image Source="buttonsAccept" HorizontalOptions="CenterAndExpand">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="CreateSaveFile"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

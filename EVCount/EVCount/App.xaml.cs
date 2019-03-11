@@ -11,7 +11,7 @@ namespace EVCount
 		{
 			InitializeComponent();
 
-			MainPage = new StartMenu();
+			MainPage = new NavigationPage(new StartMenu());
 		}
 
 		protected override void OnStart ()
