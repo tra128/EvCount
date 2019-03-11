@@ -319,6 +319,7 @@
                                                    HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" FontSize="Large"/>
                             <ListView x:Name="lv_SaveFile3" HasUnevenRows="True" HeightRequest="120" 
                                       Grid.Column="1" Grid.Row="0"
+                                      ItemTapped="lv_SaveFile_ItemTapped"
                                       BackgroundColor="White" RefreshControlColor="White">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>

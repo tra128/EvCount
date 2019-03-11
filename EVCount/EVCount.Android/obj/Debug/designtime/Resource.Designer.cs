@@ -4333,13 +4333,16 @@ namespace EVCount.Droid
 			public const int buttonsCancel = 2130771984;
 			
 			// aapt resource value: 0x7F010011
-			public const int CountBGnd = 2130771985;
+			public const int CountBackgroundBorderless = 2130771985;
 			
 			// aapt resource value: 0x7F010012
-			public const int Cross = 2130771986;
+			public const int CountBGnd = 2130771986;
 			
 			// aapt resource value: 0x7F010013
-			public const int DeleteIconYellow = 2130771987;
+			public const int Cross = 2130771987;
+			
+			// aapt resource value: 0x7F010014
+			public const int DeleteIconYellow = 2130771988;
 			
 			// aapt resource value: 0x7F090056
 			public const int design_bottom_navigation_item_background = 2131296342;
@@ -4359,8 +4362,8 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F09005B
 			public const int design_snackbar_background = 2131296347;
 			
-			// aapt resource value: 0x7F010014
-			public const int EvCountIcon = 2130771988;
+			// aapt resource value: 0x7F010015
+			public const int EvCountIcon = 2130771989;
 			
 			// aapt resource value: 0x7F090054
 			public const int ic_audiotrack_dark = 2131296340;
@@ -4893,8 +4896,8 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F090104
 			public const int ic_vol_type_tv_light = 2131296516;
 			
-			// aapt resource value: 0x7F010015
-			public const int MinusImg = 2130771989;
+			// aapt resource value: 0x7F010016
+			public const int MinusImg = 2130771990;
 			
 			// aapt resource value: 0x7F090105
 			public const int mr_button_connected_dark = 2131296517;
@@ -4956,8 +4959,8 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F090118
 			public const int mr_vol_type_audiotrack_light = 2131296536;
 			
-			// aapt resource value: 0x7F010016
-			public const int NavigationBackground = 2130771990;
+			// aapt resource value: 0x7F010017
+			public const int NavigationBackground = 2130771991;
 			
 			// aapt resource value: 0x7F09005C
 			public const int navigation_empty_icon = 2131296348;
@@ -4998,26 +5001,26 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F09000C
 			public const int notify_panel_notification_icon_bg = 2131296268;
 			
-			// aapt resource value: 0x7F010017
-			public const int PerBG = 2130771991;
-			
 			// aapt resource value: 0x7F010018
-			public const int PluseImg = 2130771992;
+			public const int PerBG = 2130771992;
 			
 			// aapt resource value: 0x7F010019
-			public const int RiseCount = 2130771993;
+			public const int PluseImg = 2130771993;
 			
 			// aapt resource value: 0x7F010020
-			public const int SaveIcon = 2130772000;
+			public const int RiseCount = 2130772000;
 			
 			// aapt resource value: 0x7F010021
-			public const int SaveIconSaved = 2130772001;
+			public const int SaveIcon = 2130772001;
 			
 			// aapt resource value: 0x7F010022
-			public const int StartMenuLogo1 = 2130772002;
+			public const int SaveIconSaved = 2130772002;
 			
 			// aapt resource value: 0x7F010023
-			public const int SunIcon = 2130772003;
+			public const int StartMenuLogo1 = 2130772003;
+			
+			// aapt resource value: 0x7F010024
+			public const int SunIcon = 2130772004;
 			
 			// aapt resource value: 0x7F090069
 			public const int tooltip_frame_dark = 2131296361;
@@ -5025,8 +5028,8 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F09006A
 			public const int tooltip_frame_light = 2131296362;
 			
-			// aapt resource value: 0x7F010024
-			public const int UArrow = 2130772004;
+			// aapt resource value: 0x7F010025
+			public const int UArrow = 2130772005;
 			
 			static Drawable()
 			{

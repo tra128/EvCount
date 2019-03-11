@@ -237,6 +237,7 @@ C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\res\d
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\res\drawable\saveiconsaved.png
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\res\drawable\minusimg.png
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\res\drawable\pluseimg.png
+C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\res\drawable\countbackgroundborderless.png
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\bin\Debug\EVCount.Android.dll
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\linksrc\EVCount.pdb
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\linksrc\EVCount.Android.dll.mdb
