@@ -23,6 +23,16 @@ namespace EVCount
             img_TrainPokemon.Source = "https://img.pokemondb.net/sprites/heartgold-soulsilver/back-normal/" + trainer.Pokemon.ToLower() + ".png";
         }
 
+        public async void GenSelected(object sender, EventArgs args) {
+            var lbl = sender as Label;
+            List<Pokemon> pokemons;
+            PokemonApi api = new PokemonApi();
+            pokemons = await api.Pokemons(lbl.Text);
+            lv_Pokemons.ItemsSource = pokemons;
+            sl_Gens.IsVisible = false;
+            lv_Pokemons.IsVisible = true;
+        }
+
 
 
         private void Reads(object sender, EventArgs e)
@@ -81,6 +91,7 @@ namespace EVCount
             Clases.PokemonApi pokemonApi = new Clases.PokemonApi();
             pokemonApi.Generate();
         }
+
         private void Rise4(object sender, EventArgs e)
         {
             DisplayCount.Text = (int.Parse(DisplayCount.Text) + 4) + "";

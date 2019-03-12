@@ -21,5 +21,5 @@ C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount\obj\Debug\netstandard2.
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount\bin\Debug\netstandard2.0\EVCount.deps.json
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount\bin\Debug\netstandard2.0\EVCount.dll
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount\bin\Debug\netstandard2.0\EVCount.pdb
-C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount\obj\Debug\netstandard2.0\EVCount.csprojAssemblyReference.cache
+C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount\obj\Debug\netstandard2.0\XamlC.stamp

@@ -312,6 +312,57 @@
 
         
     </StackLayout>
+        <Frame BorderColor="Accent"
+                   CornerRadius="10"
+                   IsVisible="True"
+                   Grid.Column="0" Grid.Row="0" Margin="60,90,60,90" Padding="10,10,10,0" BackgroundColor="#1D2C4B">
+            <Grid>
+                <StackLayout x:Name="sl_Gens" Margin="20,0,20,0">
+                    <Frame CornerRadius="60" BorderColor="Accent" Padding="0" BackgroundColor="Transparent">
+                        <Label Text="Gen1" Style="{StaticResource LabelStyle}" TextColor="Accent" FontSize="Large">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="GenSelected"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Frame>
+                    <Frame CornerRadius="60" BorderColor="Accent" Padding="0" BackgroundColor="Transparent">
+                        <Label Text="Gen2" Style="{StaticResource LabelStyle}" TextColor="Accent" FontSize="Large">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="GenSelected"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Frame>
+                    <Frame CornerRadius="60" BorderColor="Accent" Padding="0" BackgroundColor="Transparent">
+                        <Label Text="Gen3" Style="{StaticResource LabelStyle}" TextColor="Accent" FontSize="Large">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="GenSelected"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Frame>
+                </StackLayout>
+            <ListView x:Name="lv_Pokemons" IsVisible="False">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="45"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding Image}" WidthRequest="45" Grid.Column="0" Grid.Row="0"/>
+                                <Label Text="{Binding Name}" Style="{StaticResource LabelStyle}" 
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="CenterAndExpand"
+                                       Grid.Column="1" Grid.Row="0"
+                                       TextColor="Accent"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </Grid>
+        </Frame>
+            
     </Grid>
 
 </ContentPage>
