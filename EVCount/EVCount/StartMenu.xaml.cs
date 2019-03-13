@@ -19,7 +19,10 @@ namespace EVCount
         String MainFileNumber;
 		public StartMenu ()
 		{
+            try { 
 			InitializeComponent ();
+            }
+            catch (Exception e){ }
             IntroTheme = CrossSimpleAudioPlayer.Current;
             IntroTheme.Load("IntroTheme.mp3");
             IntroTheme.Loop=true;

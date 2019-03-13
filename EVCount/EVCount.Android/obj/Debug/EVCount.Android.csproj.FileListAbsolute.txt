@@ -243,5 +243,6 @@ C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\bin\Debug\Newto
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\linksrc\Newtonsoft.Json.pdb
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\android\assets\Newtonsoft.Json.pdb
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\bin\Debug\EVCount.Android.dll
+C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\linksrc\EVCount.pdb
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\linksrc\EVCount.Android.dll.mdb
 C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Debug\linksrc\Plugin.SimpleAudioPlayer.dll.mdb
