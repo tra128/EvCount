@@ -104,6 +104,18 @@ namespace EVCount.Clases
 
         }
 
+        public List<PowerItem> GetPowerItems()
+        {
+            List<PowerItem> powerItems = new List<PowerItem>();
+            powerItems.Add(new PowerItem { Name = "Macho Brace", Image = "machobrace.png" });
+            powerItems.Add(new PowerItem { Name = "Power Anklet", Image = "poweranklet" });
+            powerItems.Add(new PowerItem { Name = "Power Band", Image = "powerband.png" });
+            powerItems.Add(new PowerItem { Name = "Power Belt", Image = "powerbelt" });
+            powerItems.Add(new PowerItem { Name = "Power Bracer", Image = "powerbracer" });
+            powerItems.Add(new PowerItem { Name = "Power Lens", Image = "powerlens" });
+            powerItems.Add(new PowerItem { Name = "Power Weight", Image = "powerweight" });
+            return powerItems;
+        }
         public async void Generate()
         {
             
@@ -166,6 +178,11 @@ namespace EVCount.Clases
         public int SpAtk { get; set; }
         public int SpDef { get; set; }
         public int Spd { get; set; }
+    }
+    public class PowerItem
+    {
+        public string Image { get; set; }
+        public string Name { get; set; }
     }
 
     public class Diccion : INotifyPropertyChanged

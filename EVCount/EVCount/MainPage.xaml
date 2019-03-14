@@ -51,21 +51,38 @@
                 </Grid.ColumnDefinitions>
                 <Label Text="Held Item" Style="{StaticResource LabelStyle}" VerticalOptions="StartAndExpand"/>
                 <Frame BorderColor="Accent" BackgroundColor="#454545" Padding="0" CornerRadius="60" VerticalOptions="EndAndExpand">
-                    <Label Text="Select an Item" Style="{StaticResource LabelStyle}" TextColor="White"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image x:Name="img_PowerItem"  Source="PokeballIcon" WidthRequest="15" 
+                               Grid.Column="0"
+                               Aspect="AspectFit" HorizontalOptions="CenterAndExpand"/>
+                        <Label x:Name="lbl_ItemSelectedName" Text="Select an Item" Style="{StaticResource LabelStyle}" TextColor="White" Grid.Column="1">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="DisplayPowerItems"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </Grid>
                 </Frame>
-                <Switch IsToggled="False" OnColor="Accent" 
+                <Switch x:Name="swt_Gen7" IsToggled="False" OnColor="Accent" 
                         Grid.Column="0" Grid.Row="1" 
                         VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
                 <Label Text="Gen 7" Style="{StaticResource LabelStyle}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" 
                        Grid.Column="0" Grid.Row="1"/>
-                <Image x:Name="img_VsPokemon" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"
-                       Aspect="AspectFit" WidthRequest="195"/>
-                <Switch IsToggled="False" OnColor="Accent" 
+                <Image x:Name="img_VsPokemon" Source="PokeballIcon" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"
+                       Aspect="AspectFit" WidthRequest="165">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="PokemonSelectionTapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Switch x:Name="swt_Pokerus" IsToggled="False" OnColor="Accent" 
                         Grid.Column="2" Grid.Row="0" 
                         VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
                 <Label Text="Pokerus" Style="{StaticResource LabelStyle}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" 
                        Grid.Column="2" Grid.Row="0"/>
-                <Switch IsToggled="False" OnColor="Accent" 
+                <Switch x:Name="swt_SOS" IsToggled="False" OnColor="Accent" 
                         Grid.Column="2" Grid.Row="1" 
                         VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
                 <Label Text="S.O.S." Style="{StaticResource LabelStyle}" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" 
@@ -116,7 +133,11 @@
                        Aspect="AspectFill" Grid.Column="1"/>
                 <Image Source="PluseImg" Grid.Row="0"
                        HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" 
-                       Aspect="AspectFill" Grid.Column="1"/>
+                       Aspect="AspectFill" Grid.Column="1">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="addEvs"/>
+                    </Image.GestureRecognizers>
+                </Image>
                 <Image  Source="CountBGnd" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"
                        Grid.Column="1" Grid.Row="1"/>
                 <Label Text="Defeated" Style="{StaticResource LabelStyle}" 
@@ -124,7 +145,7 @@
                        Grid.Column="1" Grid.Row="1"/>
             </Grid>
 
-            <Grid>
+            <Grid x:Name="grd_StatsValues">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -141,34 +162,34 @@
                 </Grid.RowDefinitions>
                 <!--||||||||||||||||||||||||||||||||||||||||||||First Row||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
                 <Image Source="PerBG" Grid.Column="0" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Label Text="0" Grid.Column="0" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                <Label x:Name="lbl_HP" Text="0" Grid.Column="0" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
                 <Label Text="HP" Grid.Column="0" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
                 <Image Source="PerBG" Grid.Column="1" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Label Text="0" Grid.Column="1" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                <Label x:Name="lbl_Atk" Text="0" Grid.Column="1" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
                 <Label Text="Atk" Grid.Column="1" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
                 <Image Source="PerBG" Grid.Column="2" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Label Text="0" Grid.Column="2" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                <Label x:Name="lbl_Def" Text="0" Grid.Column="2" Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
                 <Label Text="Def" Grid.Column="2" Grid.Row="1" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
                 <!--||||||||||||||||||||||||||||||||||||||||||||First Row||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
                 <!--||||||||||||||||||||||||||||||||||||||||||||Second Row||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
                 <Image Source="PerBG" Grid.Column="0" Grid.Row="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Label Text="0" Grid.Column="0" Grid.Row="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                <Label x:Name="lbl_SpAtk" Text="0" Grid.Column="0" Grid.Row="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
                 <Label Text="Sp.Atk" Grid.Column="0" Grid.Row="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
                 <Image Source="PerBG" Grid.Column="1" Grid.Row="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Label Text="0" Grid.Column="1" Grid.Row="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                <Label x:Name="lbl_SpDef" Text="0" Grid.Column="1" Grid.Row="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
                 <Label Text="Sp.Def" Grid.Column="1" Grid.Row="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
                 <Image Source="PerBG" Grid.Column="2" Grid.Row="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Label Text="0" Grid.Column="2" Grid.Row="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                <Label x:Name="lbl_Spd" Text="0" Grid.Column="2" Grid.Row="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
                 <Label Text="Spd" Grid.Column="2" Grid.Row="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
@@ -176,14 +197,14 @@
                 <Label Text="Remain:" Grid.Column="1" Grid.Row="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
                 <Image Source="PerBG" Grid.Column="1" Grid.Row="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                <Label Text="0" Grid.Column="1" Grid.Row="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                <Label x:Name="lbl_Total" Text="0" Grid.Column="1" Grid.Row="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
                 <Label Text="Total" Grid.Column="1" Grid.Row="6" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
             </Grid>
             <!-- Place new controls here -->
         
-        <Grid VerticalOptions="CenterAndExpand" Margin="20" IsVisible="False">
+        <Grid  VerticalOptions="CenterAndExpand" Margin="20" IsVisible="False">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
@@ -312,57 +333,113 @@
 
         
     </StackLayout>
-        <Frame BorderColor="Accent"
+    <Frame x:Name="frm_PokemonSelection" BorderColor="Accent"
                    CornerRadius="10"
-                   IsVisible="True"
+                   IsVisible="False"
+                   Scale=".1"
                    Grid.Column="0" Grid.Row="0" Margin="60,90,60,90" Padding="10,10,10,0" BackgroundColor="#1D2C4B">
             <Grid>
-                <StackLayout x:Name="sl_Gens" Margin="20,0,20,0">
-                    <Frame CornerRadius="60" BorderColor="Accent" Padding="0" BackgroundColor="Transparent">
-                        <Label Text="Gen1" Style="{StaticResource LabelStyle}" TextColor="Accent" FontSize="Large">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="GenSelected"/>
-                            </Label.GestureRecognizers>
-                        </Label>
+                <StackLayout x:Name="sl_Gens" >
+                    <Image Source="BackButton.png" WidthRequest="35" HorizontalOptions="StartAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="PokemonSelectionTapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Frame CornerRadius="60" BorderColor="Accent" Padding="0" BackgroundColor="Transparent" Margin="20,0,20,0">
+                        <Grid>
+                            <Label Text="Gen1" Style="{StaticResource LabelStyle}" TextColor="Accent" FontSize="Large">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="GenSelected"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <ActivityIndicator IsRunning="False" IsVisible="False"/>
+                        </Grid>
                     </Frame>
-                    <Frame CornerRadius="60" BorderColor="Accent" Padding="0" BackgroundColor="Transparent">
-                        <Label Text="Gen2" Style="{StaticResource LabelStyle}" TextColor="Accent" FontSize="Large">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="GenSelected"/>
-                            </Label.GestureRecognizers>
-                        </Label>
+                    <Frame CornerRadius="60" BorderColor="Accent" Padding="0" BackgroundColor="Transparent" Margin="20,0,20,0">
+                        <Grid>
+                            <Label Text="Gen2" Style="{StaticResource LabelStyle}" TextColor="Accent" FontSize="Large">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="GenSelected"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <ActivityIndicator IsRunning="False" IsVisible="False"/>
+                        </Grid>
                     </Frame>
-                    <Frame CornerRadius="60" BorderColor="Accent" Padding="0" BackgroundColor="Transparent">
-                        <Label Text="Gen3" Style="{StaticResource LabelStyle}" TextColor="Accent" FontSize="Large">
-                            <Label.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="GenSelected"/>
-                            </Label.GestureRecognizers>
-                        </Label>
+                    <Frame CornerRadius="60" BorderColor="Accent" Padding="0" BackgroundColor="Transparent" Margin="20,0,20,0">
+                        <Grid>
+                            <Label Text="Gen3" Style="{StaticResource LabelStyle}" TextColor="Accent" FontSize="Large">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="GenSelected"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <ActivityIndicator IsRunning="False" IsVisible="False"/>
+                        </Grid>
                     </Frame>
                 </StackLayout>
-            <ListView x:Name="lv_Pokemons" IsVisible="False">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="45"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Source="{Binding Image}" WidthRequest="45" Grid.Column="0" Grid.Row="0"/>
-                                <Label Text="{Binding Name}" Style="{StaticResource LabelStyle}" 
+                <StackLayout x:Name="sl_Pokemons" IsVisible="False">
+                    <Image Source="BackButton.png" WidthRequest="35" HorizontalOptions="StartAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoBackGenSelected"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <ListView x:Name="lv_Pokemons" IsVisible="False" Margin="20,0,20,20">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell Tapped="PokemonSelected">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="45"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="{Binding Image}" WidthRequest="45" Grid.Column="0" Grid.Row="0"/>
+                                        <Label Text="{Binding Name}" Style="{StaticResource LabelStyle}" 
                                        VerticalOptions="CenterAndExpand"
                                        HorizontalOptions="CenterAndExpand"
                                        Grid.Column="1" Grid.Row="0"
                                        TextColor="Accent"/>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
             </Grid>
         </Frame>
-            
+        <Frame x:Name="frm_PowerItemSelection" BorderColor="Accent"
+                   CornerRadius="10"
+                   IsVisible="False"
+                   Scale=".1"
+                   Grid.Column="0" Grid.Row="0" Margin="60,90,60,90" Padding="10,10,10,0" BackgroundColor="#1D2C4B">
+            <Grid>
+                <StackLayout x:Name="sl_PowerItems" IsVisible="True">
+                    <Image Source="BackButton.png" WidthRequest="35" HorizontalOptions="StartAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="DisplayPowerItems"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <ListView x:Name="lv_PowerItems" IsVisible="True" Margin="20,0,20,20">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell Tapped="PowerItemSelected">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="45"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="{Binding Image}" WidthRequest="25" Grid.Column="0" Grid.Row="0"/>
+                                        <Label Text="{Binding Name}" Style="{StaticResource LabelStyle}" 
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="CenterAndExpand"
+                                       Grid.Column="1" Grid.Row="0"
+                                       TextColor="Accent"/>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
+        </Frame>
     </Grid>
 
 </ContentPage>
