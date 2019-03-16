@@ -107,15 +107,51 @@ namespace EVCount.Clases
         public List<PowerItem> GetPowerItems()
         {
             List<PowerItem> powerItems = new List<PowerItem>();
-            powerItems.Add(new PowerItem { Name = "Macho Brace", Image = "machobrace.png" });
-            powerItems.Add(new PowerItem { Name = "Power Anklet", Image = "poweranklet" });
-            powerItems.Add(new PowerItem { Name = "Power Band", Image = "powerband.png" });
-            powerItems.Add(new PowerItem { Name = "Power Belt", Image = "powerbelt" });
-            powerItems.Add(new PowerItem { Name = "Power Bracer", Image = "powerbracer" });
-            powerItems.Add(new PowerItem { Name = "Power Lens", Image = "powerlens" });
-            powerItems.Add(new PowerItem { Name = "Power Weight", Image = "powerweight" });
+            powerItems.Add(new PowerItem { Name = "Macho Brace", Image = "machobrace.png" , AffectedStat="Ev x2"});
+            powerItems.Add(new PowerItem { Name = "Power Weight", Image = "powerweight", AffectedStat = "+HP" });
+            powerItems.Add(new PowerItem { Name = "Power Bracer", Image = "powerbracer", AffectedStat = "+Atk" });
+            powerItems.Add(new PowerItem { Name = "Power Belt", Image = "powerbelt", AffectedStat = "+Def" });
+            powerItems.Add(new PowerItem { Name = "Power Lens", Image = "powerlens", AffectedStat = "+Sp.Atk" });
+            powerItems.Add(new PowerItem { Name = "Power Band", Image = "powerband.png", AffectedStat = "+Sp.Def" });
+            powerItems.Add(new PowerItem { Name = "Power Anklet", Image = "poweranklet", AffectedStat = "+Spd" });
             return powerItems;
         }
+
+        public List<UsableItems> GetVitamins()
+        {
+            List<UsableItems> usableItems = new List<UsableItems>();
+            usableItems.Add(new UsableItems { Name = "HP Up", Image = "hpup", AffectedStat = "+10HP", Value = 10 });
+            usableItems.Add(new UsableItems { Name = "Protein", Image = "protein", AffectedStat = "+10Atk", Value = 10 });
+            usableItems.Add(new UsableItems { Name = "Iron", Image = "iron", AffectedStat = "+10Def", Value = 10 });
+            usableItems.Add(new UsableItems { Name = "Calcium", Image = "calcium", AffectedStat = "+10Sp.Atk", Value = 10 });
+            usableItems.Add(new UsableItems { Name = "Zinc", Image = "zinc", AffectedStat = "+10Sp.Def", Value = 10 });
+            usableItems.Add(new UsableItems { Name = "Carbos", Image = "carbos", AffectedStat = "+10Spd", Value = 10 });
+            return usableItems;
+        }
+
+        public List<UsableItems> GetWings()
+        {
+            List<UsableItems> usableItems = new List<UsableItems>();
+            usableItems.Add(new UsableItems { Name = "Health Wing", Image = "healthwing", AffectedStat = "+1HP", Value = 1 });
+            usableItems.Add(new UsableItems { Name = "Muscle Wing", Image = "musclewing", AffectedStat = "+1Atk", Value = 1 });
+            usableItems.Add(new UsableItems { Name = "Resist Wing", Image = "resistwing", AffectedStat = "+1Def", Value = 1 });
+            usableItems.Add(new UsableItems { Name = "Genius Wing", Image = "geniuswing", AffectedStat = "+1Sp.Atk", Value = 1 });
+            usableItems.Add(new UsableItems { Name = "Clever Wing", Image = "cleverwing", AffectedStat = "+1Sp.Def", Value = 1 });
+            usableItems.Add(new UsableItems { Name = "Swift Wing", Image = "swiftwing", AffectedStat = "+1Spd", Value = 1 });
+            return usableItems;
+        }
+
+        public List<UsableItems> GetBerries() {
+            List<UsableItems> usableItems = new List<UsableItems>();
+            usableItems.Add(new UsableItems { Name = "Pomeg Berry", Image = "pomegberry", AffectedStat = "-10HP", Value = -10 });
+            usableItems.Add(new UsableItems { Name = "Kelpsy Berry", Image = "kelpsyberry", AffectedStat = "-10Atk", Value = -10 });
+            usableItems.Add(new UsableItems { Name = "Qualot Berry", Image = "qualotberry", AffectedStat = "-10Def", Value = -10 });
+            usableItems.Add(new UsableItems { Name = "Hondew Berry", Image = "hondewberry", AffectedStat = "-10Sp.Atk", Value = -10 });
+            usableItems.Add(new UsableItems { Name = "Grepa Berry", Image = "grepaberry", AffectedStat = "-10Sp.Def", Value = -10 });
+            usableItems.Add(new UsableItems { Name = "Tamato Berry", Image = "tamatoberry", AffectedStat = "-10Spd", Value = -10 });
+            return usableItems;
+        }
+
         public async void Generate()
         {
             
@@ -183,8 +219,15 @@ namespace EVCount.Clases
     {
         public string Image { get; set; }
         public string Name { get; set; }
+        public string AffectedStat { get; set; }
     }
-
+    public class UsableItems
+    {
+        public string Image { get; set; }
+        public string Name { get; set; }
+        public string AffectedStat { get; set; }
+        public int Value { get; set; }
+    }
     public class Diccion : INotifyPropertyChanged
     {
         string word;

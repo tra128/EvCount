@@ -4336,16 +4336,25 @@ namespace EVCount.Droid
 			public const int buttonsCancel = 2130771985;
 			
 			// aapt resource value: 0x7F010012
-			public const int CountBackgroundBorderless = 2130771986;
+			public const int calcium = 2130771986;
 			
 			// aapt resource value: 0x7F010013
-			public const int CountBGnd = 2130771987;
+			public const int carbos = 2130771987;
 			
 			// aapt resource value: 0x7F010014
-			public const int Cross = 2130771988;
+			public const int cleverwing = 2130771988;
 			
 			// aapt resource value: 0x7F010015
-			public const int DeleteIconYellow = 2130771989;
+			public const int CountBackgroundBorderless = 2130771989;
+			
+			// aapt resource value: 0x7F010016
+			public const int CountBGnd = 2130771990;
+			
+			// aapt resource value: 0x7F010017
+			public const int Cross = 2130771991;
+			
+			// aapt resource value: 0x7F010018
+			public const int DeleteIconYellow = 2130771992;
 			
 			// aapt resource value: 0x7F090056
 			public const int design_bottom_navigation_item_background = 2131296342;
@@ -4365,8 +4374,23 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F09005B
 			public const int design_snackbar_background = 2131296347;
 			
-			// aapt resource value: 0x7F010016
-			public const int EvCountIcon = 2130771990;
+			// aapt resource value: 0x7F010019
+			public const int EvCountIcon = 2130771993;
+			
+			// aapt resource value: 0x7F010020
+			public const int geniuswing = 2130772000;
+			
+			// aapt resource value: 0x7F010021
+			public const int grepaberry = 2130772001;
+			
+			// aapt resource value: 0x7F010022
+			public const int healthwing = 2130772002;
+			
+			// aapt resource value: 0x7F010023
+			public const int hondewberry = 2130772003;
+			
+			// aapt resource value: 0x7F010024
+			public const int hpup = 2130772004;
 			
 			// aapt resource value: 0x7F090054
 			public const int ic_audiotrack_dark = 2131296340;
@@ -4899,14 +4923,20 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F090104
 			public const int ic_vol_type_tv_light = 2131296516;
 			
-			// aapt resource value: 0x7F010017
-			public const int Ivy = 2130771991;
+			// aapt resource value: 0x7F010025
+			public const int iron = 2130772005;
 			
-			// aapt resource value: 0x7F010018
-			public const int machobrace = 2130771992;
+			// aapt resource value: 0x7F010026
+			public const int Ivy = 2130772006;
 			
-			// aapt resource value: 0x7F010019
-			public const int MinusImg = 2130771993;
+			// aapt resource value: 0x7F010027
+			public const int kelpsyberry = 2130772007;
+			
+			// aapt resource value: 0x7F010028
+			public const int machobrace = 2130772008;
+			
+			// aapt resource value: 0x7F010029
+			public const int MinusImg = 2130772009;
 			
 			// aapt resource value: 0x7F090105
 			public const int mr_button_connected_dark = 2131296517;
@@ -4968,8 +4998,11 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F090118
 			public const int mr_vol_type_audiotrack_light = 2131296536;
 			
-			// aapt resource value: 0x7F010020
-			public const int NavigationBackground = 2130772000;
+			// aapt resource value: 0x7F010030
+			public const int musclewing = 2130772016;
+			
+			// aapt resource value: 0x7F010031
+			public const int NavigationBackground = 2130772017;
 			
 			// aapt resource value: 0x7F09005C
 			public const int navigation_empty_icon = 2131296348;
@@ -5010,47 +5043,65 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F09000C
 			public const int notify_panel_notification_icon_bg = 2131296268;
 			
-			// aapt resource value: 0x7F010021
-			public const int PerBG = 2130772001;
-			
-			// aapt resource value: 0x7F010022
-			public const int PluseImg = 2130772002;
-			
-			// aapt resource value: 0x7F010023
-			public const int PokeballIcon = 2130772003;
-			
-			// aapt resource value: 0x7F010024
-			public const int poweranklet = 2130772004;
-			
-			// aapt resource value: 0x7F010025
-			public const int powerband = 2130772005;
-			
-			// aapt resource value: 0x7F010026
-			public const int powerbelt = 2130772006;
-			
-			// aapt resource value: 0x7F010027
-			public const int powerbracer = 2130772007;
-			
-			// aapt resource value: 0x7F010028
-			public const int powerlens = 2130772008;
-			
-			// aapt resource value: 0x7F010029
-			public const int powerweight = 2130772009;
-			
-			// aapt resource value: 0x7F010030
-			public const int RiseCount = 2130772016;
-			
-			// aapt resource value: 0x7F010031
-			public const int SaveIcon = 2130772017;
-			
 			// aapt resource value: 0x7F010032
-			public const int SaveIconSaved = 2130772018;
+			public const int PerBG = 2130772018;
 			
 			// aapt resource value: 0x7F010033
-			public const int StartMenuLogo1 = 2130772019;
+			public const int PluseImg = 2130772019;
 			
 			// aapt resource value: 0x7F010034
-			public const int SunIcon = 2130772020;
+			public const int PokeballIcon = 2130772020;
+			
+			// aapt resource value: 0x7F010035
+			public const int pomegberry = 2130772021;
+			
+			// aapt resource value: 0x7F010036
+			public const int poweranklet = 2130772022;
+			
+			// aapt resource value: 0x7F010037
+			public const int powerband = 2130772023;
+			
+			// aapt resource value: 0x7F010038
+			public const int powerbelt = 2130772024;
+			
+			// aapt resource value: 0x7F010039
+			public const int powerbracer = 2130772025;
+			
+			// aapt resource value: 0x7F010040
+			public const int powerlens = 2130772032;
+			
+			// aapt resource value: 0x7F010041
+			public const int powerweight = 2130772033;
+			
+			// aapt resource value: 0x7F010042
+			public const int protein = 2130772034;
+			
+			// aapt resource value: 0x7F010043
+			public const int qualotberry = 2130772035;
+			
+			// aapt resource value: 0x7F010044
+			public const int resistwing = 2130772036;
+			
+			// aapt resource value: 0x7F010045
+			public const int RiseCount = 2130772037;
+			
+			// aapt resource value: 0x7F010046
+			public const int SaveIcon = 2130772038;
+			
+			// aapt resource value: 0x7F010047
+			public const int SaveIconSaved = 2130772039;
+			
+			// aapt resource value: 0x7F010048
+			public const int StartMenuLogo1 = 2130772040;
+			
+			// aapt resource value: 0x7F010049
+			public const int SunIcon = 2130772041;
+			
+			// aapt resource value: 0x7F010050
+			public const int swiftwing = 2130772048;
+			
+			// aapt resource value: 0x7F010051
+			public const int tamatoberry = 2130772049;
 			
 			// aapt resource value: 0x7F090069
 			public const int tooltip_frame_dark = 2131296361;
@@ -5058,8 +5109,11 @@ namespace EVCount.Droid
 			// aapt resource value: 0x7F09006A
 			public const int tooltip_frame_light = 2131296362;
 			
-			// aapt resource value: 0x7F010035
-			public const int UArrow = 2130772021;
+			// aapt resource value: 0x7F010052
+			public const int UArrow = 2130772050;
+			
+			// aapt resource value: 0x7F010053
+			public const int zinc = 2130772051;
 			
 			static Drawable()
 			{

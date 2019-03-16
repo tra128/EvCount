@@ -15,6 +15,7 @@ namespace EVCount
         Trainer GlobalTrainer;
         Pokemon vsPokemon;
         PowerItem GlobalPowerItem;
+        int hp = 0, atk = 0, def = 0, spatk = 0, spdef = 0, spd = 0;
         public MainPage(Trainer trainer)
         {
             InitializeComponent();
@@ -43,9 +44,50 @@ namespace EVCount
             lv_Pokemons.IsVisible = true;
         }
 
+
+
+        public void DisplayUsableItem(object sender, EventArgs e)
+        {
+            var lbl = sender as Label;
+            var acI = (lbl.Parent as Grid).Children.ElementAt(1) as ActivityIndicator;
+            lbl.IsVisible = false;
+            acI.IsVisible = true;
+            acI.IsRunning = true;
+            List<UsableItems> usableItems;
+            PokemonApi api = new PokemonApi();
+            switch (lbl.Text)
+            {
+                case "Vitamin":
+                    usableItems = api.GetVitamins();
+                    lv_Items.ItemsSource = usableItems;
+                    break;
+                case "Wing":
+                    usableItems = api.GetWings();
+                    lv_Items.ItemsSource = usableItems;
+                    break;
+                case "Berry":
+                    usableItems = api.GetBerries();
+                    lv_Items.ItemsSource = usableItems;
+                    break;
+            }
+            
+            lbl.IsVisible = true;
+            acI.IsVisible = false;
+            acI.IsRunning = false;
+            sl_UsableItems.IsVisible = false;
+            sl_Items.IsVisible = true;
+            lv_Items.IsVisible = true;
+        }
+
         public void GoBackGenSelected (object sender, EventArgs args){
             sl_Gens.IsVisible = true;
             sl_Pokemons.IsVisible = false;
+        }
+
+        public void GoBackDisplayItems(object sender, EventArgs args)
+        {
+            sl_UsableItems.IsVisible = true;
+            sl_Items.IsVisible = false;
         }
 
         public async void  PokemonSelectionTapped(object sender, EventArgs e) {
@@ -61,17 +103,167 @@ namespace EVCount
 
         }
 
+        public async void UsableItemsTapped(object sender, EventArgs e)
+        {
+            if (!frm_UsableItems.IsVisible)
+            {
+                frm_UsableItems.IsVisible = true;
+                await frm_UsableItems.ScaleTo(1, 250);
+            }
+            else
+            {
+                await frm_UsableItems.ScaleTo(.1, 250);
+                frm_UsableItems.IsVisible = false;
+            }
+        }
+
         public async void PokemonSelected (object sender, EventArgs args) {
             vsPokemon = ((sender as ViewCell).Parent as ListView).SelectedItem as Pokemon;
             img_VsPokemon.Source = " https://img.pokemondb.net/artwork/vector/large/"+vsPokemon.Name.ToLower()+".png";
+            img_Pluse.IsEnabled = true;
             await frm_PokemonSelection.ScaleTo(.1, 250);
             frm_PokemonSelection.IsVisible = false;
         }
 
+        public async void UsableItemSelected(object sender,EventArgs e)
+        {
+            UsableItems item = ((sender as ViewCell).Parent as ListView).SelectedItem as UsableItems;
+
+            if (!(int.Parse(lbl_Total.Text) >= 510))
+            {
+                                
+                switch (item.Name)
+                {
+                    case "HP Up":
+                        if ((int.Parse(lbl_HP.Text) + item.Value) >= 252) { lbl_HP.Text = "252"; }
+                        else
+                        {
+                            if (item.Value >= int.Parse(lbl_Left.Text)) { item.Value = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                            lbl_HP.Text = (int.Parse(lbl_HP.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Protein":
+                        if ((int.Parse(lbl_Atk.Text) + item.Value) >= 252) { lbl_Atk.Text = "252"; }
+                        else
+                        {
+                            if (item.Value >= int.Parse(lbl_Left.Text)) { item.Value = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                            lbl_Atk.Text = (int.Parse(lbl_Atk.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Iron":
+                        if ((int.Parse(lbl_Def.Text) + item.Value) >= 252) { lbl_Def.Text = "252"; }
+                        else
+                        {
+                            if (item.Value >= int.Parse(lbl_Left.Text)) { item.Value = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                            lbl_Def.Text = (int.Parse(lbl_Def.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Calcium":
+                        if ((int.Parse(lbl_SpAtk.Text) + item.Value) >= 252) { lbl_SpAtk.Text = "252"; }
+                        else
+                        {
+                            if (item.Value >= int.Parse(lbl_Left.Text)) { item.Value = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                            lbl_SpAtk.Text = (int.Parse(lbl_SpAtk.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Zinc":
+                        if ((int.Parse(lbl_SpDef.Text) + item.Value) >= 252) { lbl_SpDef.Text = "252"; }
+                        else
+                        {
+                            if (item.Value >= int.Parse(lbl_Left.Text)) { item.Value = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                            lbl_SpDef.Text = (int.Parse(lbl_SpDef.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Carbos":
+                        if ((int.Parse(lbl_Spd.Text) + item.Value) >= 252) { lbl_Spd.Text = "252"; }
+                        else
+                        {
+                            if (item.Value >= int.Parse(lbl_Left.Text)) { item.Value = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                            lbl_Spd.Text = (int.Parse(lbl_Spd.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Health Wing":
+                        if ((int.Parse(lbl_HP.Text) + item.Value) >= 252) { lbl_HP.Text = "252"; }
+                        else
+                        {
+                            if (item.Value >= int.Parse(lbl_Left.Text)) { item.Value = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                            lbl_HP.Text = (int.Parse(lbl_HP.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Muscle Wing":
+                        if ((int.Parse(lbl_Atk.Text) + item.Value) >= 252) { lbl_Atk.Text = "252"; }
+                        else
+                        {
+                            if (item.Value >= int.Parse(lbl_Left.Text)) { item.Value = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                            lbl_Atk.Text = (int.Parse(lbl_Atk.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Resist Wing":
+                        if ((int.Parse(lbl_Def.Text) + item.Value) >= 252) { lbl_Def.Text = "252"; }
+                        else
+                        {
+                            if (item.Value >= int.Parse(lbl_Left.Text)) { item.Value = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                            lbl_Def.Text = (int.Parse(lbl_Def.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Genius Wing":
+                        if ((int.Parse(lbl_SpAtk.Text) + item.Value) >= 252) { lbl_SpAtk.Text = "252"; }
+                        else
+                        {
+                            if (item.Value >= int.Parse(lbl_Left.Text)) { item.Value = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                            lbl_SpAtk.Text = (int.Parse(lbl_SpAtk.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Clever Wing":
+                        if ((int.Parse(lbl_SpDef.Text) + item.Value) >= 252) { lbl_SpDef.Text = "252"; }
+                        else
+                        {
+                            if (item.Value >= int.Parse(lbl_Left.Text)) { item.Value = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                            lbl_SpDef.Text = (int.Parse(lbl_SpDef.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Swift Wing":
+                        if ((int.Parse(lbl_Spd.Text) + item.Value) >= 252) { lbl_Spd.Text = "252"; }
+                        else
+                        {
+                            if (item.Value >= int.Parse(lbl_Left.Text)) { item.Value = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                            lbl_Spd.Text = (int.Parse(lbl_Spd.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Pomeg Berry":
+                        break;
+                    case "Kelpsy Berry":
+                        break;
+                    case "Qualot Berry":
+                        break;
+                    case "Hondew Berry":
+                        break;
+                    case "Grepa Berry":
+                        break;
+                    case "Tamato Berry":
+                        if ((int.Parse(lbl_Spd.Text) - item.Value) <= 0) { lbl_Spd.Text = "0"; }
+                        else
+                        {
+                            if (item.Value >= int.Parse(lbl_Left.Text)) { item.Value = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                            lbl_Spd.Text = (int.Parse(lbl_Spd.Text) - item.Value).ToString();
+                        }
+                        break;
+                }
+
+                lbl_Total.Text = (int.Parse(lbl_HP.Text) + int.Parse(lbl_Atk.Text) + int.Parse(lbl_Def.Text) + int.Parse(lbl_SpAtk.Text) + int.Parse(lbl_SpDef.Text) + int.Parse(lbl_Spd.Text)).ToString();
+                lbl_Left.Text = (510 - int.Parse(lbl_Total.Text)).ToString();
+            }
+
+            await frm_UsableItems.ScaleTo(.1, 250);
+            frm_UsableItems.IsVisible = false;
+        }
+
         public async void addEvs(object sender, EventArgs args)
         {
+            img_Pluse.IsEnabled = false;
             int PokerusMultiplayer = 1, SOSMultiplayer = 1;
             int anklet = 0, band = 0, lens = 0, brace = 1,belt=0,bracer=0,weight=0;
+            hp = 0; atk = 0; def = 0; spatk = 0; spdef = 0; spd = 0;
             if (!(int.Parse(lbl_Total.Text)>=510)) {
                 switch (lbl_ItemSelectedName.Text)
                 {
@@ -139,17 +331,79 @@ namespace EVCount
                         brace = 2;
                         break;
                 }
+
                 if (swt_Pokerus.IsToggled) { PokerusMultiplayer = 2; }
                 if (swt_SOS.IsToggled) { SOSMultiplayer = 2; }
-                lbl_HP.Text = (int.Parse(lbl_HP.Text) + ((weight + vsPokemon.HP) * PokerusMultiplayer * SOSMultiplayer * brace)).ToString();
-                lbl_Atk.Text = (int.Parse(lbl_Atk.Text) + ((bracer + vsPokemon.Atk) * PokerusMultiplayer * SOSMultiplayer * brace)).ToString();
-                lbl_Def.Text = (int.Parse(lbl_Def.Text) + ((belt + vsPokemon.Def) * PokerusMultiplayer * SOSMultiplayer * brace)).ToString();
-                lbl_SpAtk.Text = (int.Parse(lbl_SpAtk.Text) + ((lens + vsPokemon.SpAtk) * PokerusMultiplayer * SOSMultiplayer * brace)).ToString();
-                lbl_SpDef.Text = (int.Parse(lbl_SpDef.Text) + ((band + vsPokemon.SpDef) * PokerusMultiplayer * SOSMultiplayer * brace)).ToString();
-                lbl_Spd.Text = (int.Parse(lbl_Spd.Text) + ((anklet + vsPokemon.Spd) * PokerusMultiplayer * SOSMultiplayer * brace)).ToString();
+
+                hp =  ((weight + vsPokemon.HP) * PokerusMultiplayer * SOSMultiplayer * brace);
+                atk = ((bracer + vsPokemon.Atk) * PokerusMultiplayer * SOSMultiplayer * brace);
+                def = ((belt + vsPokemon.Def) * PokerusMultiplayer * SOSMultiplayer * brace);
+                spatk = ((lens + vsPokemon.SpAtk) * PokerusMultiplayer * SOSMultiplayer * brace);
+                spdef = ((band + vsPokemon.SpDef) * PokerusMultiplayer * SOSMultiplayer * brace);
+                spd = ((anklet + vsPokemon.Spd) * PokerusMultiplayer * SOSMultiplayer * brace);
+
+                if((int.Parse(lbl_HP.Text) + hp) >= 252) { lbl_HP.Text = "252"; }
+                else { if(hp>=int.Parse(lbl_Left.Text)) { hp = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                    lbl_HP.Text = (int.Parse(lbl_HP.Text) + hp).ToString();
+                }
+
+                if ((int.Parse(lbl_Atk.Text) + atk) >= 252) { lbl_Atk.Text = "252"; }
+                else {
+                    if (atk >= int.Parse(lbl_Left.Text)) { atk = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                    lbl_Atk.Text = (int.Parse(lbl_Atk.Text) + atk).ToString(); }
+
+                if ((int.Parse(lbl_Def.Text) + def) >= 252) { lbl_Def.Text = "252"; }
+                else {
+                    if (def >= int.Parse(lbl_Left.Text)) { def = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                    lbl_Def.Text = (int.Parse(lbl_Def.Text) + def).ToString(); }
+
+                if ((int.Parse(lbl_SpAtk.Text) + spatk) >= 252) { lbl_SpAtk.Text = "252"; }
+                else {
+                    if (spatk >= int.Parse(lbl_Left.Text)) { spatk = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                    lbl_SpAtk.Text = (int.Parse(lbl_SpAtk.Text) + spatk).ToString(); }
+
+                if ((int.Parse(lbl_SpDef.Text) + spdef) >= 252) { lbl_SpDef.Text = "252"; }
+                else {
+                    if (spdef >= int.Parse(lbl_Left.Text)) { spdef = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                    lbl_SpDef.Text = (int.Parse(lbl_SpDef.Text) + spdef).ToString(); }
+
+                if ((int.Parse(lbl_Spd.Text) + spd) >= 252) { lbl_Spd.Text = "252"; }
+                else {
+                    if (spd >= int.Parse(lbl_Left.Text)) { spd = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
+                    lbl_Spd.Text = (int.Parse(lbl_Spd.Text) + spd).ToString(); }
 
                 lbl_Total.Text = (int.Parse(lbl_HP.Text) + int.Parse(lbl_Atk.Text) + int.Parse(lbl_Def.Text) + int.Parse(lbl_SpAtk.Text) + int.Parse(lbl_SpDef.Text) + int.Parse(lbl_Spd.Text)).ToString();
+                lbl_Left.Text = (510 - int.Parse(lbl_Total.Text)).ToString();
+                lbl_defeated.Text = (int.Parse(lbl_defeated.Text) + 1)+"";
+                img_Minus.IsEnabled = true;
+                img_Pluse.IsEnabled = true;
             }
+        }
+
+        public async void removeEvs(object sender, EventArgs args)
+        {
+            if ((int.Parse(lbl_HP.Text) - hp) <= 0) { lbl_HP.Text = "0"; }
+            else { lbl_HP.Text = (int.Parse(lbl_HP.Text) - hp).ToString(); }
+
+            if ((int.Parse(lbl_Atk.Text) - atk) <= 0) { lbl_Atk.Text = "0"; }
+            else { lbl_Atk.Text = (int.Parse(lbl_Atk.Text) - atk).ToString(); }
+
+            if ((int.Parse(lbl_Def.Text) - def) <= 0) { lbl_Def.Text = "0"; }
+            else { lbl_Def.Text = (int.Parse(lbl_Def.Text) - def).ToString(); }
+
+            if ((int.Parse(lbl_SpAtk.Text) - spatk) <= 0) { lbl_SpAtk.Text = "0"; }
+            else { lbl_SpAtk.Text = (int.Parse(lbl_SpAtk.Text) - spatk).ToString(); }
+
+            if ((int.Parse(lbl_SpDef.Text) - spdef) <= 0) { lbl_SpDef.Text = "0"; }
+            else { lbl_SpDef.Text = (int.Parse(lbl_SpDef.Text) - spdef).ToString(); }
+
+            if ((int.Parse(lbl_Spd.Text) - spd) <= 0) { lbl_Spd.Text = "0"; }
+            else { lbl_Spd.Text = (int.Parse(lbl_Spd.Text) - spd).ToString(); }
+
+            lbl_Total.Text = (int.Parse(lbl_HP.Text) + int.Parse(lbl_Atk.Text) + int.Parse(lbl_Def.Text) + int.Parse(lbl_SpAtk.Text) + int.Parse(lbl_SpDef.Text) + int.Parse(lbl_Spd.Text)).ToString();
+            lbl_Left.Text = (510 - int.Parse(lbl_Total.Text)).ToString();
+            lbl_defeated.Text = (int.Parse(lbl_defeated.Text) - 1) + "";
+            img_Minus.IsEnabled = false;
         }
 
         public async void DisplayPowerItems(object sender, EventArgs argss)

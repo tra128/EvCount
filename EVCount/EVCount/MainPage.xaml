@@ -51,15 +51,15 @@
                 </Grid.ColumnDefinitions>
                 <Label Text="Held Item" Style="{StaticResource LabelStyle}" VerticalOptions="StartAndExpand"/>
                 <Frame BorderColor="Accent" BackgroundColor="#454545" Padding="0" CornerRadius="60" VerticalOptions="EndAndExpand">
-                    <Grid>
+                    <Grid Margin="5,0,5,0">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="35"/>
+                            <ColumnDefinition Width="15"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Image x:Name="img_PowerItem"  Source="PokeballIcon" WidthRequest="15" 
                                Grid.Column="0"
                                Aspect="AspectFit" HorizontalOptions="CenterAndExpand"/>
-                        <Label x:Name="lbl_ItemSelectedName" Text="Select an Item" Style="{StaticResource LabelStyle}" TextColor="White" Grid.Column="1">
+                        <Label x:Name="lbl_ItemSelectedName" Text="Item" Style="{StaticResource LabelStyle}" TextColor="White" Grid.Column="1">
                             <Label.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="DisplayPowerItems"/>
                             </Label.GestureRecognizers>
@@ -101,7 +101,11 @@
                 <Frame BorderColor="Accent" BackgroundColor="#454545" Padding="0" 
                        CornerRadius="60" VerticalOptions="EndAndExpand"
                        Grid.Column="0" Grid.Row="0">
-                    <Label Text="Use Item" Style="{StaticResource LabelStyle}" TextColor="White"/>
+                    <Label Text="Use Item" Style="{StaticResource LabelStyle}" TextColor="White">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="UsableItemsTapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
                 </Frame>
                 <Image x:Name="img_TrainPokemon" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="0"
                        Aspect="AspectFill" HeightRequest="195"/>
@@ -125,15 +129,19 @@
                 <Image Source="CountBackgroundBorderless" 
                        HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Aspect="AspectFill" Grid.Column="1" Grid.Row="0"/>
-                <Label Text="0" Style="{StaticResource LabelStyle}"
+                <Label x:Name="lbl_defeated" Text="0" Style="{StaticResource LabelStyle}"
                        Grid.Column="1" Grid.Row="0"
                        HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" />
-                <Image Source="MinusImg" Grid.Row="0"
+                <Image x:Name="img_Minus" Source="MinusImg" Grid.Row="0"
                        HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" 
-                       Aspect="AspectFill" Grid.Column="1"/>
-                <Image Source="PluseImg" Grid.Row="0"
+                       Aspect="AspectFill" Grid.Column="1" IsEnabled="False">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="removeEvs"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image x:Name="img_Pluse" Source="PluseImg" Grid.Row="0"
                        HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" 
-                       Aspect="AspectFill" Grid.Column="1">
+                       Aspect="AspectFill" Grid.Column="1" IsEnabled="False">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="addEvs"/>
                     </Image.GestureRecognizers>
@@ -194,7 +202,9 @@
                 <Label Text="Spd" Grid.Column="2" Grid.Row="3" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
                 <!--||||||||||||||||||||||||||||||||||||||||||||Second Row||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-                <Label Text="Remain:" Grid.Column="1" Grid.Row="4" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                <Label Text="Left:" Grid.Column="1" Grid.Row="4" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" 
+                       Style="{StaticResource LabelStyle}" TextColor="White"/>
+                <Label x:Name="lbl_Left" Text="510" Grid.Column="1" Grid.Row="4" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" 
                        Style="{StaticResource LabelStyle}" TextColor="White"/>
                 <Image Source="PerBG" Grid.Column="1" Grid.Row="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
                 <Label x:Name="lbl_Total" Text="0" Grid.Column="1" Grid.Row="5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
@@ -204,7 +214,7 @@
             </Grid>
             <!-- Place new controls here -->
         
-        <Grid  VerticalOptions="CenterAndExpand" Margin="20" IsVisible="False">
+            <Grid  VerticalOptions="CenterAndExpand" Margin="20" IsVisible="False">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
@@ -332,8 +342,8 @@
         </Grid>
 
         
-    </StackLayout>
-    <Frame x:Name="frm_PokemonSelection" BorderColor="Accent"
+        </StackLayout>
+        <Frame x:Name="frm_PokemonSelection" BorderColor="Accent"
                    CornerRadius="10"
                    IsVisible="False"
                    Scale=".1"
@@ -382,7 +392,7 @@
                             <TapGestureRecognizer Tapped="GoBackGenSelected"/>
                         </Image.GestureRecognizers>
                     </Image>
-                    <ListView x:Name="lv_Pokemons" IsVisible="False" Margin="20,0,20,20">
+                    <ListView x:Name="lv_Pokemons" IsVisible="False" Margin="20,0,20,20" HasUnevenRows="True">
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell Tapped="PokemonSelected">
@@ -391,12 +401,44 @@
                                             <ColumnDefinition Width="45"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="45"/>
+                                            <RowDefinition Height="15"/>
+                                        </Grid.RowDefinitions>
                                         <Image Source="{Binding Image}" WidthRequest="45" Grid.Column="0" Grid.Row="0"/>
                                         <Label Text="{Binding Name}" Style="{StaticResource LabelStyle}" 
                                        VerticalOptions="CenterAndExpand"
                                        HorizontalOptions="CenterAndExpand"
                                        Grid.Column="1" Grid.Row="0"
                                        TextColor="Accent"/>
+                                        <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalOptions="EndAndExpand"
+                                                   HorizontalOptions="StartAndExpand">
+                                            <Label Style="{StaticResource LabelStyle}"
+                                                   FontSize="Micro"
+                                                   TextColor="Accent">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span Text="HP: "/>
+                                                        <Span Text="{Binding HP}"/>
+                                                        <Span Text="  "/>
+                                                        <Span Text="Atk: "/>
+                                                        <Span Text="{Binding Atk}"/>
+                                                        <Span Text="  "/>
+                                                        <Span Text="Def: "/>
+                                                        <Span Text="{Binding Def}"/>
+                                                        <Span Text="  "/>
+                                                        <Span Text="Sp.Atk: "/>
+                                                        <Span Text="{Binding SpAtk}"/>
+                                                        <Span Text="  "/>
+                                                        <Span Text="Sp.Def: "/>
+                                                        <Span Text="{Binding SpDef}"/>
+                                                        <Span Text="  "/>
+                                                        <Span Text="Spd: "/>
+                                                        <Span Text="{Binding Spd}"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </Grid>
                                     </Grid>
                                 </ViewCell>
                             </DataTemplate>
@@ -423,13 +465,18 @@
                                 <ViewCell Tapped="PowerItemSelected">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="45"/>
+                                            <ColumnDefinition Width="25"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
                                         <Image Source="{Binding Image}" WidthRequest="25" Grid.Column="0" Grid.Row="0"/>
                                         <Label Text="{Binding Name}" Style="{StaticResource LabelStyle}" 
                                        VerticalOptions="CenterAndExpand"
                                        HorizontalOptions="CenterAndExpand"
+                                       Grid.Column="1" Grid.Row="0"
+                                       TextColor="Accent"/>
+                                        <Label Text="{Binding AffectedStat}" Style="{StaticResource LabelStyle}" 
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="EndAndExpand"
                                        Grid.Column="1" Grid.Row="0"
                                        TextColor="Accent"/>
                                     </Grid>
@@ -440,6 +487,89 @@
                 </StackLayout>
             </Grid>
         </Frame>
+
+        <Frame x:Name="frm_UsableItems" BorderColor="Accent"
+                   CornerRadius="10"
+                   IsVisible="True"
+                   Scale="1"
+                   Grid.Column="0" Grid.Row="0" Margin="60,90,60,90" Padding="10,10,10,0" BackgroundColor="#1D2C4B">
+            <Grid>
+                <StackLayout x:Name="sl_UsableItems" >
+                    <Image Source="BackButton.png" WidthRequest="35" HorizontalOptions="StartAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="UsableItemsTapped"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Frame CornerRadius="60" BorderColor="Accent" Padding="0" BackgroundColor="Transparent" Margin="20,0,20,0">
+                        <Grid>
+                            <Label Text="Vitamin" Style="{StaticResource LabelStyle}" TextColor="Accent" FontSize="Large">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="DisplayUsableItem"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <ActivityIndicator IsRunning="False" IsVisible="False"/>
+                        </Grid>
+                    </Frame>
+                    <Frame CornerRadius="60" BorderColor="Accent" Padding="0" BackgroundColor="Transparent" Margin="20,0,20,0">
+                        <Grid>
+                            <Label Text="Wing" Style="{StaticResource LabelStyle}" TextColor="Accent" FontSize="Large">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="DisplayUsableItem"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <ActivityIndicator IsRunning="False" IsVisible="False"/>
+                        </Grid>
+                    </Frame>
+                    <Frame CornerRadius="60" BorderColor="Accent" Padding="0" BackgroundColor="Transparent" Margin="20,0,20,0">
+                        <Grid>
+                            <Label Text="Berry" Style="{StaticResource LabelStyle}" TextColor="Accent" FontSize="Large">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="DisplayUsableItem"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <ActivityIndicator IsRunning="False" IsVisible="False" WidthRequest="25"/>
+                        </Grid>
+                    </Frame>
+                </StackLayout>
+                <StackLayout x:Name="sl_Items" IsVisible="False">
+                    <Image Source="BackButton.png" WidthRequest="35" HorizontalOptions="StartAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoBackDisplayItems"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <ListView x:Name="lv_Items" IsVisible="True" Margin="20,0,20,20" HasUnevenRows="True">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell Tapped="UsableItemSelected">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="45"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="45"/>
+                                        </Grid.RowDefinitions>
+                                        <Image Source="{Binding Image}" WidthRequest="45" Grid.Column="0" Grid.Row="0"/>
+                                        <Label Text="{Binding Name}" Style="{StaticResource LabelStyle}" 
+                                       VerticalOptions="CenterAndExpand"
+                                       HorizontalOptions="StartAndExpand"
+                                       Grid.Column="1" Grid.Row="0"
+                                       TextColor="Accent"/>
+                                        <Grid Grid.Column="1" Grid.Row="0" VerticalOptions="CenterAndExpand"
+                                                   HorizontalOptions="EndAndExpand">
+                                            <Label Style="{StaticResource LabelStyle}"
+                                                   Text="{Binding AffectedStat}"
+                                                   TextColor="Accent"/>
+                                        </Grid>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
+        </Frame>
+
     </Grid>
 
 </ContentPage>
