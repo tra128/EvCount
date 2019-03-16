@@ -129,7 +129,7 @@ namespace EVCount
         {
             UsableItems item = ((sender as ViewCell).Parent as ListView).SelectedItem as UsableItems;
 
-            if (!(int.Parse(lbl_Total.Text) >= 510))
+            if (true/*!(int.Parse(lbl_Total.Text) >= 510)*/)
             {
                                 
                 switch (item.Name)
@@ -231,21 +231,89 @@ namespace EVCount
                         }
                         break;
                     case "Pomeg Berry":
-                        break;
-                    case "Kelpsy Berry":
-                        break;
-                    case "Qualot Berry":
-                        break;
-                    case "Hondew Berry":
-                        break;
-                    case "Grepa Berry":
-                        break;
-                    case "Tamato Berry":
-                        if ((int.Parse(lbl_Spd.Text) - item.Value) <= 0) { lbl_Spd.Text = "0"; }
+                        if ((int.Parse(lbl_HP.Text) - item.Value) <= 0)
+                        {
+                            lbl_HP.Text = "0";
+                        }
                         else
                         {
-                            if (item.Value >= int.Parse(lbl_Left.Text)) { item.Value = int.Parse(lbl_Left.Text); lbl_Left.Text = "0"; }
-                            lbl_Spd.Text = (int.Parse(lbl_Spd.Text) - item.Value).ToString();
+                            if (item.Value <= (510 - int.Parse(lbl_Left.Text)) * -1)
+                            {
+                                item.Value = (510 - int.Parse(lbl_Left.Text)) * -1;
+                                lbl_Left.Text = (item.Value * -1).ToString();
+                            }
+                            lbl_HP.Text = (int.Parse(lbl_HP.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Kelpsy Berry":
+                        if ((int.Parse(lbl_Atk.Text) - item.Value) <= 0)
+                        {
+                            lbl_Atk.Text = "0";
+                        }
+                        else
+                        {
+                            if (item.Value <= (510 - int.Parse(lbl_Left.Text)) * -1)
+                            {
+                                item.Value = (510 - int.Parse(lbl_Left.Text)) * -1;
+                                lbl_Left.Text = (item.Value * -1).ToString();
+                            }
+                            lbl_Atk.Text = (int.Parse(lbl_Atk.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Qualot Berry":
+                        if ((int.Parse(lbl_Def.Text) - item.Value) <= 0)
+                        {
+                            lbl_Def.Text = "0";
+                        }
+                        else
+                        {
+                            if (item.Value <= (510 - int.Parse(lbl_Left.Text)) * -1)
+                            {
+                                item.Value = (510 - int.Parse(lbl_Left.Text)) * -1;
+                                lbl_Left.Text = (item.Value * -1).ToString();
+                            }
+                            lbl_Def.Text = (int.Parse(lbl_Def.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Hondew Berry":
+                        if ((int.Parse(lbl_SpAtk.Text) - item.Value) <= 0)
+                        {
+                            lbl_SpAtk.Text = "0";
+                        }
+                        else
+                        {
+                            if (item.Value <= (510 - int.Parse(lbl_Left.Text)) * -1)
+                            {
+                                item.Value = (510 - int.Parse(lbl_Left.Text)) * -1;
+                                lbl_Left.Text = (item.Value * -1).ToString();
+                            }
+                            lbl_SpAtk.Text = (int.Parse(lbl_SpAtk.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Grepa Berry":
+                        if ((int.Parse(lbl_SpDef.Text) - item.Value) <= 0)
+                        {
+                            lbl_SpDef.Text = "0";
+                        }
+                        else
+                        {
+                            if (item.Value <= (510 - int.Parse(lbl_Left.Text)) * -1)
+                            {
+                                item.Value = (510 - int.Parse(lbl_Left.Text)) * -1;
+                                lbl_Left.Text = (item.Value * -1).ToString();
+                            }
+                            lbl_SpDef.Text = (int.Parse(lbl_SpDef.Text) + item.Value).ToString();
+                        }
+                        break;
+                    case "Tamato Berry":
+                        if ((int.Parse(lbl_Spd.Text) - item.Value) <= 0) {
+                            lbl_Spd.Text = "0"; }
+                        else
+                        {
+                            if (item.Value <= (510-int.Parse(lbl_Left.Text))*-1) {
+                                item.Value = (510-int.Parse(lbl_Left.Text))*-1;
+                                lbl_Left.Text = (item.Value*-1).ToString(); }
+                            lbl_Spd.Text = (int.Parse(lbl_Spd.Text) + item.Value).ToString();
                         }
                         break;
                 }
@@ -258,9 +326,8 @@ namespace EVCount
             frm_UsableItems.IsVisible = false;
         }
 
-        public async void addEvs(object sender, EventArgs args)
+        public void addEvs(object sender, EventArgs args)
         {
-            img_Pluse.IsEnabled = false;
             int PokerusMultiplayer = 1, SOSMultiplayer = 1;
             int anklet = 0, band = 0, lens = 0, brace = 1,belt=0,bracer=0,weight=0;
             hp = 0; atk = 0; def = 0; spatk = 0; spdef = 0; spd = 0;
@@ -380,7 +447,7 @@ namespace EVCount
             }
         }
 
-        public async void removeEvs(object sender, EventArgs args)
+        public void removeEvs(object sender, EventArgs args)
         {
             if ((int.Parse(lbl_HP.Text) - hp) <= 0) { lbl_HP.Text = "0"; }
             else { lbl_HP.Text = (int.Parse(lbl_HP.Text) - hp).ToString(); }

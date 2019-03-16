@@ -2,7 +2,7 @@ package md51558244f76c53b6aeda52c8a337f2c37;
 
 
 public class ScrollViewRenderer
-	extends android.widget.ScrollView
+	extends android.support.v4.widget.NestedScrollView
 	implements
 		mono.android.IGCUserPeer
 {

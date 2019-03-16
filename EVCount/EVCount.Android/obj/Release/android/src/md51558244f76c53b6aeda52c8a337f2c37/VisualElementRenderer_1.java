@@ -13,6 +13,7 @@ public abstract class VisualElementRenderer_1
 			"n_onTouchEvent:(Landroid/view/MotionEvent;)Z:GetOnTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"n_onInterceptTouchEvent:(Landroid/view/MotionEvent;)Z:GetOnInterceptTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"n_dispatchTouchEvent:(Landroid/view/MotionEvent;)Z:GetDispatchTouchEvent_Landroid_view_MotionEvent_Handler\n" +
+			"n_focusSearch:(Landroid/view/View;I)Landroid/view/View;:GetFocusSearch_Landroid_view_View_IHandler\n" +
 			"n_onLayout:(ZIIII)V:GetOnLayout_ZIIIIHandler\n" +
 			"";
 		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.VisualElementRenderer`1, Xamarin.Forms.Platform.Android", VisualElementRenderer_1.class, __md_methods);
@@ -65,6 +66,14 @@ public abstract class VisualElementRenderer_1
 	}
 
 	private native boolean n_dispatchTouchEvent (android.view.MotionEvent p0);
+
+
+	public android.view.View focusSearch (android.view.View p0, int p1)
+	{
+		return n_focusSearch (p0, p1);
+	}
+
+	private native android.view.View n_focusSearch (android.view.View p0, int p1);
 
 
 	public void onLayout (boolean p0, int p1, int p2, int p3, int p4)
