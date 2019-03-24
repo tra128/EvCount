@@ -22,6 +22,14 @@ namespace EVCount
             GlobalTrainer = trainer;
             UserIcon.Source = GlobalTrainer.Image;
             TrainerName.Text = GlobalTrainer.Name;
+            lbl_HP.Text = trainer.HP.ToString();
+            lbl_Atk.Text = trainer.Atk.ToString();
+            lbl_Def.Text = trainer.Def.ToString();
+            lbl_SpAtk.Text = trainer.SpAtk.ToString();
+            lbl_SpDef.Text = trainer.SpDef.ToString();
+            lbl_Spd.Text = trainer.Spd.ToString();
+            lbl_Total.Text = (int.Parse(lbl_HP.Text) + int.Parse(lbl_Atk.Text) + int.Parse(lbl_Def.Text) + int.Parse(lbl_SpAtk.Text) + int.Parse(lbl_SpDef.Text) + int.Parse(lbl_Spd.Text)).ToString();
+            lbl_Left.Text = (510 - int.Parse(lbl_Total.Text)).ToString();
             //img_VsPokemon.Source = "https://img.pokemondb.net/artwork/" + trainer.Pokemon.ToLower()+".jpg";
             img_TrainPokemon.Source = "https://img.pokemondb.net/sprites/heartgold-soulsilver/back-normal/" + trainer.Pokemon.ToLower() + ".png";
         }
@@ -44,7 +52,15 @@ namespace EVCount
             lv_Pokemons.IsVisible = true;
         }
 
+        public void saveData(object sender, EventArgs args)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            string UserSaveData = Path.Combine(path, GlobalTrainer.SaveID);
+            string[] ToSaveData = new string[] { GlobalTrainer.Image, GlobalTrainer.Name, GlobalTrainer.Pokemon, lbl_HP.Text, lbl_Atk.Text, lbl_Def.Text, lbl_SpAtk.Text, lbl_SpDef.Text, lbl_Spd.Text};
+            File.WriteAllLines(UserSaveData, ToSaveData);
+            img_SaveIcon.Source = "SaveIconSaved";
 
+        }
 
         public void DisplayUsableItem(object sender, EventArgs e)
         {
@@ -445,6 +461,7 @@ namespace EVCount
                 img_Minus.IsEnabled = true;
                 img_Pluse.IsEnabled = true;
             }
+            img_SaveIcon.Source = "SaveIcon";
         }
 
         public void removeEvs(object sender, EventArgs args)
@@ -471,6 +488,7 @@ namespace EVCount
             lbl_Left.Text = (510 - int.Parse(lbl_Total.Text)).ToString();
             lbl_defeated.Text = (int.Parse(lbl_defeated.Text) - 1) + "";
             img_Minus.IsEnabled = false;
+            img_SaveIcon.Source = "SaveIcon";
         }
 
         public async void DisplayPowerItems(object sender, EventArgs argss)

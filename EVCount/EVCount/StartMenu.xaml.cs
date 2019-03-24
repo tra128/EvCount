@@ -39,7 +39,7 @@ namespace EVCount
             if (File.Exists(File1)){
                 List<Trainer> trainer1 = new List<Trainer>();
                 String[]Data = File.ReadAllLines(File1);
-                trainer1.Add(new Trainer { Image = Data[0], Name = Data[1], Pokemon = Data[2], HP = int.Parse(Data[3]), Atk = int.Parse(Data[4]), Def = int.Parse(Data[5]), SpAtk = int.Parse(Data[6]), SpDef = int.Parse(Data[7]), Spd = int.Parse(Data[8]) });
+                trainer1.Add(new Trainer {SaveID=File1, Image = Data[0], Name = Data[1], Pokemon = Data[2], HP = int.Parse(Data[3]), Atk = int.Parse(Data[4]), Def = int.Parse(Data[5]), SpAtk = int.Parse(Data[6]), SpDef = int.Parse(Data[7]), Spd = int.Parse(Data[8]) });
                 lv_SaveFile1.ItemsSource = trainer1;
                 grd_SaveFile1.IsVisible = true;
                 lb_NewFile1.IsVisible = false;
@@ -49,7 +49,7 @@ namespace EVCount
             {
                 List<Trainer> trainer1 = new List<Trainer>();
                 String[] Data = File.ReadAllLines(File2);
-                trainer1.Add(new Trainer { Image = Data[0], Name = Data[1], Pokemon = Data[2], HP = int.Parse(Data[3]), Atk = int.Parse(Data[4]), Def = int.Parse(Data[5]), SpAtk = int.Parse(Data[6]), SpDef = int.Parse(Data[7]), Spd = int.Parse(Data[8]) });
+                trainer1.Add(new Trainer { SaveID = File2, Image = Data[0], Name = Data[1], Pokemon = Data[2], HP = int.Parse(Data[3]), Atk = int.Parse(Data[4]), Def = int.Parse(Data[5]), SpAtk = int.Parse(Data[6]), SpDef = int.Parse(Data[7]), Spd = int.Parse(Data[8]) });
                 lv_SaveFile2.ItemsSource = trainer1;
                 grd_SaveFile2.IsVisible = true;
                 lb_NewFile2.IsVisible = false;
@@ -59,7 +59,7 @@ namespace EVCount
             {
                 List<Trainer> trainer1 = new List<Trainer>();
                 String[] Data = File.ReadAllLines(File3);
-                trainer1.Add(new Trainer { Image = Data[0], Name = Data[1], Pokemon = Data[2], HP = int.Parse(Data[3]), Atk = int.Parse(Data[4]), Def = int.Parse(Data[5]), SpAtk = int.Parse(Data[6]), SpDef = int.Parse(Data[7]), Spd = int.Parse(Data[8]) });
+                trainer1.Add(new Trainer { SaveID = File3, Image = Data[0], Name = Data[1], Pokemon = Data[2], HP = int.Parse(Data[3]), Atk = int.Parse(Data[4]), Def = int.Parse(Data[5]), SpAtk = int.Parse(Data[6]), SpDef = int.Parse(Data[7]), Spd = int.Parse(Data[8]) });
                 lv_SaveFile3.ItemsSource = trainer1;
                 grd_SaveFile3.IsVisible = true;
                 lb_NewFile3.IsVisible = false;
@@ -153,7 +153,7 @@ namespace EVCount
                 case "SaveFile#1.txt":
                     Data = File.ReadAllLines(User_filename);
                     trainer1.Clear();
-                    trainer1.Add(new Trainer { Image=Data[0], Name = Data[1], Pokemon = Data[2], HP = int.Parse(Data[3]), Atk = int.Parse(Data[4]), Def = int.Parse(Data[5]), SpAtk = int.Parse(Data[6]), SpDef = int.Parse(Data[7]), Spd = int.Parse(Data[8]) });
+                    trainer1.Add(new Trainer {SaveID=SaveFileNumber, Image=Data[0], Name = Data[1], Pokemon = Data[2], HP = int.Parse(Data[3]), Atk = int.Parse(Data[4]), Def = int.Parse(Data[5]), SpAtk = int.Parse(Data[6]), SpDef = int.Parse(Data[7]), Spd = int.Parse(Data[8]) });
                     lv_SaveFile1.ItemsSource = trainer1;
                     await MainCurrentFrame.ScaleTo(.1, 250);
                     grd_SaveFile1.IsVisible = true;
@@ -163,7 +163,7 @@ namespace EVCount
                 case "SaveFile#2.txt":
                     Data = File.ReadAllLines(User_filename);
                     trainer1.Clear();
-                    trainer1.Add(new Trainer { Image = Data[0], Name = Data[1], Pokemon = Data[2], HP = int.Parse(Data[3]), Atk = int.Parse(Data[4]), Def = int.Parse(Data[5]), SpAtk = int.Parse(Data[6]), SpDef = int.Parse(Data[7]), Spd = int.Parse(Data[8]) });
+                    trainer1.Add(new Trainer { SaveID = SaveFileNumber, Image = Data[0], Name = Data[1], Pokemon = Data[2], HP = int.Parse(Data[3]), Atk = int.Parse(Data[4]), Def = int.Parse(Data[5]), SpAtk = int.Parse(Data[6]), SpDef = int.Parse(Data[7]), Spd = int.Parse(Data[8]) });
                     lv_SaveFile2.ItemsSource = trainer1;
                     await MainCurrentFrame.ScaleTo(.1, 250);
                     grd_SaveFile2.IsVisible = true;
@@ -173,7 +173,7 @@ namespace EVCount
                 case "SaveFile#3.txt":
                     Data = File.ReadAllLines(User_filename);
                     trainer1.Clear();
-                    trainer1.Add(new Trainer { Image = Data[0], Name = Data[1], Pokemon = Data[2], HP = int.Parse(Data[3]), Atk = int.Parse(Data[4]), Def = int.Parse(Data[5]), SpAtk = int.Parse(Data[6]), SpDef = int.Parse(Data[7]), Spd = int.Parse(Data[8]) });
+                    trainer1.Add(new Trainer { SaveID = SaveFileNumber, Image = Data[0], Name = Data[1], Pokemon = Data[2], HP = int.Parse(Data[3]), Atk = int.Parse(Data[4]), Def = int.Parse(Data[5]), SpAtk = int.Parse(Data[6]), SpDef = int.Parse(Data[7]), Spd = int.Parse(Data[8]) });
                     lv_SaveFile3.ItemsSource = trainer1;
                     await MainCurrentFrame.ScaleTo(.1, 250);
                     grd_SaveFile3.IsVisible = true;

@@ -34,7 +34,11 @@
                     <Label x:Name="TrainerName" HorizontalOptions="StartAndExpand" 
                            Style="{StaticResource LabelStyle}" VerticalOptions="CenterAndExpand"
                            FontSize="Large"/>
-                    <Image x:Name="img_SaveIcon" Source="SaveIcon" Aspect="AspectFit" WidthRequest="45" Margin="0,0,20,0"></Image>
+                    <Image x:Name="img_SaveIcon" Source="SaveIcon" Aspect="AspectFit" WidthRequest="45" Margin="0,0,20,0">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="saveData"/>
+                        </Image.GestureRecognizers>
+                    </Image>
                 </StackLayout>
             </Grid>
 
@@ -108,7 +112,7 @@
                     </Label>
                 </Frame>
                 <Image x:Name="img_TrainPokemon" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Grid.Column="1" Grid.Row="0"
-                       Aspect="AspectFill" HeightRequest="195"/>
+                       Aspect="AspectFit" WidthRequest="195"/>
                 <Frame BorderColor="Accent" BackgroundColor="#454545" Padding="0" 
                        CornerRadius="60" VerticalOptions="EndAndExpand"
                        Grid.Column="2" Grid.Row="0">
@@ -385,6 +389,16 @@
                             <ActivityIndicator IsRunning="False" IsVisible="False"/>
                         </Grid>
                     </Frame>
+                    <Frame CornerRadius="60" BorderColor="Accent" Padding="0" BackgroundColor="Transparent" Margin="20,0,20,0">
+                        <Grid>
+                            <Label Text="Gen4" Style="{StaticResource LabelStyle}" TextColor="Accent" FontSize="Large">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="GenSelected"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <ActivityIndicator IsRunning="False" IsVisible="False"/>
+                        </Grid>
+                    </Frame>
                 </StackLayout>
                 <StackLayout x:Name="sl_Pokemons" IsVisible="False">
                     <Image Source="BackButton.png" WidthRequest="35" HorizontalOptions="StartAndExpand">
@@ -490,7 +504,7 @@
 
         <Frame x:Name="frm_UsableItems" BorderColor="Accent"
                    CornerRadius="10"
-                   IsVisible="True"
+                   IsVisible="False"
                    Scale="1"
                    Grid.Column="0" Grid.Row="0" Margin="60,90,60,90" Padding="10,10,10,0" BackgroundColor="#1D2C4B">
             <Grid>

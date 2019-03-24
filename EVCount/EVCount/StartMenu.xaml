@@ -52,7 +52,7 @@
                     <Grid>
                         <Grid x:Name="grd_SaveFile1" IsVisible="False" BackgroundColor="White">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="65"/>
+                                <ColumnDefinition Width="55"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="25"/>
                             </Grid.ColumnDefinitions>

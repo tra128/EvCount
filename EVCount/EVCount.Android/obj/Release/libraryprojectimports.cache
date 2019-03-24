@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Paths>
   <Jars>
-    <Jar>obj\Release\lp\1\jl\formsviewgroup.jar</Jar>
-    <Jar>obj\Release\lp\6\jl\arch-core-common.jar</Jar>
-    <Jar>obj\Release\lp\7\jl\arch-lifecycle-common.jar</Jar>
-    <Jar>obj\Release\lp\10\jl\support-annotations.jar</Jar>
     <Jar>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Release\lp\1\jl\formsviewgroup.jar</Jar>
     <Jar>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Release\lp\10\jl\support-annotations.jar</Jar>
     <Jar>C:\Users\tra128\Documents\GitHub\EvCount\EVCount\EVCount.Android\obj\Release\lp\11\jl\bin\classes.jar</Jar>
